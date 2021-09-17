@@ -6,6 +6,7 @@ import { useInView } from "react-intersection-observer";
 
 import { TitleTextContext } from "../../App";
 import { HistoryText } from "../molecules/HistoryText";
+import { Container } from "../templates/Container";
 
 export const History: VFC = () => {
   const { setTitle } = useContext(TitleTextContext);
@@ -22,7 +23,7 @@ export const History: VFC = () => {
   }, [inView, setTitle]);
 
   return (
-    <SContainer>
+    <Container>
       <SHistory ref={ref}>
         <SHistoryTextBox>
           <HistoryText />
@@ -31,24 +32,11 @@ export const History: VFC = () => {
           <SHistoryImage></SHistoryImage>
         </SHistoryImageBox>
       </SHistory>
-    </SContainer>
+    </Container>
   );
 };
 
-const SContainer = styled.div`
-  /* width: 100%;
-  height: 1800px; */
-  width: calc(100% - 80px);
-  height: calc(95vh - 90px);
-  background-color: whitesmoke;
-  margin: 0 auto;
-  position: relative;
-  margin-bottom: 10vh;
-`;
-
 const SHistory = styled.div`
-  /* width: calc(100% - 80px);
-  height: calc(95vh - 90px); */
   width: 100%;
   height: 100%;
   display: flex;
@@ -71,7 +59,6 @@ const SHistoryImageBox = styled.div`
 `;
 
 const SHistoryImage = styled.div`
-  /* width: 50%; */
   height: 80vh;
   opacity: 0.8;
   background-image: url(${history});

@@ -8,7 +8,6 @@ import { useInView } from "react-intersection-observer";
 import { TitleTextContext } from "../../App";
 
 export const Main: VFC = memo(() => {
-  console.log("main");
   const { setTitle } = useContext(TitleTextContext);
 
   const { ref, inView } = useInView({
@@ -47,11 +46,9 @@ const TransitionDefault = {
 
 const SContainer = styled.div`
   width: 100%;
-  /* height: 100vh; */
-  /* background-color: black; */
   display: flex;
-  justify-content: center; /*左右中央揃え*/
-  align-items: center; /*上下中央揃え*/
+  justify-content: center;
+  align-items: center;
   margin-bottom: 10vh;
 `;
 
@@ -59,18 +56,15 @@ const SMain = styled.div`
   width: calc(100% - 80px);
   height: calc(95vh - 90px);
   overflow: hidden;
-  /* background-color: blue; */
 `;
 
 const SMainBg = styled(motion.div)`
   width: calc(100%);
   height: calc(95vh - 90px);
-  /* background-color: white; */
   margin: 0 auto;
   background-image: url(${bg});
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
-  /* transform: scale(1); */
   overflow: hidden;
 `;

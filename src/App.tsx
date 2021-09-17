@@ -6,6 +6,7 @@ import { Header } from "./components/organisms/Header";
 import { About } from "./components/pages/About";
 import { History } from "./components/pages/History";
 import { Main } from "./components/pages/Main";
+import { Works } from "./components/pages/Works";
 
 export type TitleContextType = {
   title: string;
@@ -28,12 +29,14 @@ function App() {
         <Main />
         <About />
         <History />
+        <Works />
       </SMainContent>
     </TitleTextContext.Provider>
   );
 }
 
 const SMainContent = styled.div`
+  width: 100%;
   padding-top: 80px;
   margin: 0 auto;
 `;

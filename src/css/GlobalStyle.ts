@@ -12,6 +12,7 @@ export const GlobalStyle = createGlobalStyle`
     font-family: sans-serif;
     font-size: ${variable.textSize};
     color: ${variable.textColor};
+    width: 100%;
     *, *:before, *:after {
         margin: 0;
         padding: 0;

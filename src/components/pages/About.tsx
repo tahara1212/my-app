@@ -5,14 +5,13 @@ import { useInView } from "react-intersection-observer";
 
 import { TitleTextContext } from "../../App";
 import about from "../../images/about.jpeg";
+import { Container } from "../templates/Container";
 
 export const About: VFC = () => {
-  // console.log("about");
   const { setTitle } = useContext(TitleTextContext);
 
   const { ref, inView } = useInView({
     // オプション
-    // rootMargin: "-400px", // ref要素が現れてから50px過ぎたら
     threshold: [0.5, 1.0],
   });
 
@@ -23,7 +22,7 @@ export const About: VFC = () => {
   }, [inView, setTitle]);
 
   return (
-    <SContainer>
+    <Container>
       <SAbout ref={ref}>
         <SAboutImageBox>
           <SAboutImage></SAboutImage>
@@ -36,24 +35,11 @@ export const About: VFC = () => {
           </SAboutText>
         </SAboutTextBox>
       </SAbout>
-    </SContainer>
+    </Container>
   );
 };
 
-const SContainer = styled.div`
-  /* width: 100%;
-  height: 1800px; */
-  width: calc(100% - 80px);
-  height: calc(95vh - 90px);
-  background-color: whitesmoke;
-  margin: 0 auto;
-  position: relative;
-  margin-bottom: 10vh;
-`;
-
 const SAbout = styled.div`
-  /* width: calc(100% - 80px);
-  height: calc(95vh - 90px); */
   display: flex;
   justify-content: space-between;
   margin: 0 auto;
@@ -85,7 +71,6 @@ const SAboutImageBox = styled.div`
 `;
 
 const SAboutImage = styled.div`
-  /* width: 50%; */
   height: 80vh;
   opacity: 0.8;
   background-image: url(${about});
