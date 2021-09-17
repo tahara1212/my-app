@@ -6,6 +6,7 @@ import { Header } from "./components/organisms/Header";
 import { About } from "./components/pages/About";
 import { History } from "./components/pages/History";
 import { Main } from "./components/pages/Main";
+import { Skils } from "./components/pages/Skils";
 import { Works } from "./components/pages/Works";
 
 export type TitleContextType = {
@@ -30,6 +31,7 @@ function App() {
         <About />
         <History />
         <Works />
+        <Skils />
       </SMainContent>
     </TitleTextContext.Provider>
   );

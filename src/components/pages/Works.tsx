@@ -81,8 +81,6 @@ const SFigure = styled.figure`
   width: 35%;
   height: 40%;
   cursor: pointer;
-  background: #3085a3;
-  background: linear-gradient(45deg, #22682a 0%, #9b4a1b 40%, #3a342a 100%);
   text-align: center;
   overflow: hidden;
 
@@ -110,7 +108,6 @@ const SFigure = styled.figure`
     }
     & figcaption {
       background-color: rgba(46, 28, 117, 0.5);
-      /* background-color: rgba(0, 11, 18, 0.5); */
     }
 
     & h2 {
@@ -138,14 +135,12 @@ const Sfigcaption = styled.figcaption`
   width: 100%;
   height: 100%;
   background-color: rgba(46, 28, 117, 0.2);
-  /* background-color: rgba(0, 11, 18, 0.2); */
   backface-visibility: hidden;
   transition: background-color 0.55s;
   color: #fff;
 `;
 
 const SH2 = styled.h2`
-  background-color: transparent;
   width: 90%;
   position: absolute;
   top: 50%;
@@ -157,7 +152,6 @@ const SH2 = styled.h2`
 const SP = styled.p`
   opacity: 0;
   width: 80%;
-  background-color: transparent;
   position: absolute;
   top: 50%;
   left: 50%;
