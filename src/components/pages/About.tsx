@@ -1,4 +1,4 @@
-import { VFC } from "react";
+import { memo, VFC } from "react";
 import { useContext, useEffect } from "react";
 import styled from "styled-components";
 import { useInView } from "react-intersection-observer";
@@ -7,7 +7,7 @@ import { TitleTextContext } from "../../App";
 import about from "../../images/about.jpeg";
 import { Container } from "../templates/Container";
 
-export const About: VFC = () => {
+export const About: VFC = memo(() => {
   const { setTitle } = useContext(TitleTextContext);
 
   const { ref, inView } = useInView({
@@ -37,7 +37,7 @@ export const About: VFC = () => {
       </SAbout>
     </Container>
   );
-};
+});
 
 const SAbout = styled.div`
   display: flex;

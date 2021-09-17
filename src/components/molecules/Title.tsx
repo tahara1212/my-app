@@ -1,11 +1,11 @@
-import { VFC } from "react";
+import { memo, VFC } from "react";
 import styled, { keyframes } from "styled-components";
 
 type TitleProps = {
   title?: string;
 };
 
-export const Title: VFC<TitleProps> = (props) => {
+export const Title: VFC<TitleProps> = memo((props) => {
   const { title } = props;
 
   return (
@@ -16,7 +16,7 @@ export const Title: VFC<TitleProps> = (props) => {
       <SMainText>{title}</SMainText>
     </>
   );
-};
+});
 
 const SVG = styled.svg`
   /* transform: rotate(-90deg); */

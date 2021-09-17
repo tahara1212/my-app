@@ -1,4 +1,4 @@
-import { VFC } from "react";
+import { memo, VFC } from "react";
 import { useContext, useEffect } from "react";
 import styled from "styled-components";
 import history from "../../images/history.jpeg";
@@ -8,7 +8,7 @@ import { TitleTextContext } from "../../App";
 import { HistoryText } from "../molecules/HistoryText";
 import { Container } from "../templates/Container";
 
-export const History: VFC = () => {
+export const History: VFC = memo(() => {
   const { setTitle } = useContext(TitleTextContext);
 
   const { ref, inView } = useInView({
@@ -34,7 +34,7 @@ export const History: VFC = () => {
       </SHistory>
     </Container>
   );
-};
+});
 
 const SHistory = styled.div`
   width: 100%;

@@ -1,4 +1,4 @@
-import { useContext, useEffect, VFC } from "react";
+import { memo, useContext, useEffect, VFC } from "react";
 import styled from "styled-components";
 import { useInView } from "react-intersection-observer";
 import {
@@ -34,7 +34,7 @@ const data = [
   { skil: "Illustrator", level: 0.93 },
 ];
 
-export const Skils: VFC = () => {
+export const Skils: VFC = memo(() => {
   const { setTitle } = useContext(TitleTextContext);
 
   const { ref, inView } = useInView({
@@ -67,7 +67,7 @@ export const Skils: VFC = () => {
       </SSkils>
     </SContainer>
   );
-};
+});
 
 const SContainer = styled.div`
   /* width: 100%;

@@ -1,4 +1,4 @@
-import { VFC } from "react";
+import { memo, VFC } from "react";
 import { useContext, useEffect } from "react";
 import styled from "styled-components";
 
@@ -10,7 +10,7 @@ import { useInView } from "react-intersection-observer";
 import { TitleTextContext } from "../../App";
 import { Container } from "../templates/Container";
 
-export const Works: VFC = () => {
+export const Works: VFC = memo(() => {
   const { setTitle } = useContext(TitleTextContext);
 
   const { ref, inView } = useInView({
@@ -74,7 +74,7 @@ export const Works: VFC = () => {
       </SWorks>
     </Container>
   );
-};
+});
 
 const SFigure = styled.figure`
   position: relative;

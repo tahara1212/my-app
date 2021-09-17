@@ -1,6 +1,7 @@
+import { memo } from "react";
 import styled from "styled-components";
 
-export const Header = () => {
+export const Header = memo(() => {
   return (
     <SHeader>
       <SLogo>
@@ -17,7 +18,7 @@ export const Header = () => {
       </SNav>
     </SHeader>
   );
-};
+});
 
 const SHeader = styled.header`
   display: flex;
