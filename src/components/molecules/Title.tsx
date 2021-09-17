@@ -7,7 +7,7 @@ type TitleProps = {
 
 export const Title: VFC<TitleProps> = (props) => {
   const { title } = props;
-  console.log(title);
+
   return (
     <>
       <SVG width="360" height="360">

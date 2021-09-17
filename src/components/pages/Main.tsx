@@ -17,7 +17,7 @@ export const Main: VFC = () => {
   return (
     <SContainer>
       <SMain ref={ref}>
-        {inView && setTitle("test2")}
+        {inView && setTitle("Welcome")}
         <SMainBg
           animate={AnimateDefault}
           transition={TransitionDefault}

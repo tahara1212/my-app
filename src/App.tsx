@@ -1,7 +1,9 @@
 import { createContext, Dispatch, SetStateAction, useState } from "react";
-import { Title } from "./components/molecules/Title";
+import styled from "styled-components";
 
+import { Title } from "./components/molecules/Title";
 import { Header } from "./components/organisms/Header";
+import { About } from "./components/pages/About";
 import { Main } from "./components/pages/Main";
 
 export type TitleContextType = {
@@ -12,7 +14,7 @@ export type TitleContextType = {
 export const TitleTextContext = createContext({} as TitleContextType);
 
 function App() {
-  const [title, setTitle] = useState<string>("tewt");
+  const [title, setTitle] = useState<string>("Welcome");
   const value: TitleContextType = {
     title,
     setTitle,
@@ -20,10 +22,18 @@ function App() {
   return (
     <TitleTextContext.Provider value={value}>
       <Header />
-      <Title title={title} />
-      <Main />
+      <SMainContent>
+        <Title title={title} />
+        <Main />
+        <About />
+      </SMainContent>
     </TitleTextContext.Provider>
   );
 }
+
+const SMainContent = styled.div`
+  padding-top: 80px;
+  margin: 0 auto;
+`;
 
 export default App;
