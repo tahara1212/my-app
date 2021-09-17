@@ -4,6 +4,7 @@ import styled from "styled-components";
 import { Title } from "./components/molecules/Title";
 import { Header } from "./components/organisms/Header";
 import { About } from "./components/pages/About";
+import { History } from "./components/pages/History";
 import { Main } from "./components/pages/Main";
 
 export type TitleContextType = {
@@ -26,6 +27,7 @@ function App() {
         <Title title={title} />
         <Main />
         <About />
+        <History />
       </SMainContent>
     </TitleTextContext.Provider>
   );

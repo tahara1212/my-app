@@ -1,5 +1,5 @@
 import { VFC } from "react";
-import { useContext } from "react";
+import { useContext, useEffect } from "react";
 import styled from "styled-components";
 import { useInView } from "react-intersection-observer";
 
@@ -7,6 +7,7 @@ import { TitleTextContext } from "../../App";
 import about from "../../images/about.jpeg";
 
 export const About: VFC = () => {
+  // console.log("about");
   const { setTitle } = useContext(TitleTextContext);
 
   const { ref, inView } = useInView({
@@ -15,11 +16,15 @@ export const About: VFC = () => {
     threshold: [0.5, 1.0],
   });
 
+  useEffect(() => {
+    if (inView) {
+      setTitle("About");
+    }
+  }, [inView, setTitle]);
+
   return (
     <SContainer>
       <SAbout ref={ref}>
-        {inView && setTitle("About")}
-
         <SAboutImageBox>
           <SAboutImage></SAboutImage>
         </SAboutImageBox>

@@ -1,5 +1,5 @@
-import { VFC } from "react";
-import { useContext } from "react";
+import { memo, VFC } from "react";
+import { useContext, useEffect } from "react";
 import styled from "styled-components";
 import bg from "../../images/bg.jpg";
 import { motion } from "framer-motion";
@@ -7,17 +7,24 @@ import { motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
 import { TitleTextContext } from "../../App";
 
-export const Main: VFC = () => {
+export const Main: VFC = memo(() => {
+  console.log("main");
   const { setTitle } = useContext(TitleTextContext);
 
   const { ref, inView } = useInView({
     // オプション
     threshold: [0.5, 1.0],
   });
+
+  useEffect(() => {
+    if (inView) {
+      setTitle("Welcome");
+    }
+  }, [inView, setTitle]);
+
   return (
     <SContainer>
       <SMain ref={ref}>
-        {inView && setTitle("Welcome")}
         <SMainBg
           animate={AnimateDefault}
           transition={TransitionDefault}
@@ -25,7 +32,7 @@ export const Main: VFC = () => {
       </SMain>
     </SContainer>
   );
-};
+});
 
 const AnimateDefault = {
   scale: 1,
