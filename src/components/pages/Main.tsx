@@ -1,7 +1,7 @@
 import { memo, VFC } from "react";
 import { useContext, useEffect } from "react";
 import styled from "styled-components";
-import bg from "../../images/bg.jpg";
+import bg from "../../images/bg.jpeg";
 import { motion } from "framer-motion";
 
 import { useInView } from "react-intersection-observer";
@@ -24,6 +24,7 @@ export const Main: VFC = memo(() => {
   return (
     <SContainer>
       <SMain ref={ref}>
+        <SMask></SMask>
         <SMainBg
           animate={AnimateDefault}
           transition={TransitionDefault}
@@ -33,12 +34,16 @@ export const Main: VFC = memo(() => {
   );
 });
 
+const SMask = styled.div`
+  background-color: rgba(0, 153, 255, 0.3);
+`;
+
 const AnimateDefault = {
   scale: 1,
 };
 
 const TransitionDefault = {
-  from: 1.5,
+  from: 2.5,
   repeat: Infinity,
   duration: 10,
   ease: "easeOut",

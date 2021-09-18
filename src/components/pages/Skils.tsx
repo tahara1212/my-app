@@ -11,6 +11,7 @@ import "@devexpress/dx-react-chart-bootstrap4/dist/dx-react-chart-bootstrap4.css
 import { Animation } from "@devexpress/dx-react-chart";
 
 import { TitleTextContext } from "../../App";
+import { Container } from "../templates/Container";
 
 const data = [
   { skil: "HTML&CSS", level: 6.382 },
@@ -23,7 +24,7 @@ const data = [
   { skil: "Java", level: 1.68 },
   { skil: "JavaScript", level: 6.2 },
   { skil: "JQuery", level: 5.8 },
-  { skil: "React", level: 4.182 },
+  { skil: "React.js", level: 4.182 },
   { skil: "TypeScript", level: 2.862 },
   { skil: "Gatsby.js", level: 2.262 },
   { skil: "Node.js", level: 1.82 },
@@ -49,7 +50,7 @@ export const Skils: VFC = memo(() => {
   }, [inView, setTitle]);
 
   return (
-    <SContainer>
+    <Container>
       <SSkils ref={ref}>
         {inView && (
           <Chart data={data}>
@@ -65,30 +66,14 @@ export const Skils: VFC = memo(() => {
           </Chart>
         )}
       </SSkils>
-    </SContainer>
+    </Container>
   );
 });
 
-const SContainer = styled.div`
-  /* width: 100%;
-  height: 1800px; */
-  width: calc(100% - 80px);
-  height: calc(95vh - 90px);
-  background-color: whitesmoke;
-  margin: 0 auto;
-  position: relative;
-  margin-bottom: 10vh;
-`;
 const SSkils = styled.div`
-  /* width: calc(100% - 80px);
-  height: calc(95vh - 90px); */
   width: 100%;
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  /* height: 100%; */
-  /* display: flex;
-  justify-content: space-between; */
-  /* margin: 0 auto; */
 `;

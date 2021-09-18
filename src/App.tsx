@@ -4,6 +4,7 @@ import styled from "styled-components";
 import { Title } from "./components/molecules/Title";
 import { Header } from "./components/organisms/Header";
 import { About } from "./components/pages/About";
+import { Contact } from "./components/pages/Contact";
 import { History } from "./components/pages/History";
 import { Main } from "./components/pages/Main";
 import { Skils } from "./components/pages/Skils";
@@ -32,6 +33,7 @@ function App() {
         <History />
         <Works />
         <Skils />
+        <Contact />
       </SMainContent>
     </TitleTextContext.Provider>
   );
