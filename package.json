@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@agney/react-loading": "^0.1.2",
     "@devexpress/dx-core": "^2.7.6",
     "@devexpress/dx-react-chart": "^2.7.6",
     "@devexpress/dx-react-chart-bootstrap4": "^2.7.6",

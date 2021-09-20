@@ -9,10 +9,11 @@ import works04 from "../../images/works04.jpeg";
 import { useInView } from "react-intersection-observer";
 import { TitleTextContext } from "../../App";
 import { Container } from "../templates/Container";
+import { WorksData } from "../../data/WorksData";
 
 export const Works: VFC = memo(() => {
+  const images = [works01, works02, works03, works04];
   const { setTitle } = useContext(TitleTextContext);
-
   const { ref, inView } = useInView({
     // オプション
     threshold: [0.5, 1.0],
@@ -27,50 +28,19 @@ export const Works: VFC = memo(() => {
   return (
     <Container id="Works">
       <SWorks ref={ref}>
-        <SFigure>
-          <SImg src={works01} alt="work1" />
-          <Sfigcaption>
-            <SH2>React + Gatsby</SH2>
-            <SP>
-              Gatsby.jsを使用したポートフォリオサイト。
-              <br />
-              HTML5 UPのテンプレートを使用。
-            </SP>
-          </Sfigcaption>
-        </SFigure>
-        <SFigure>
-          <SImg src={works02} alt="work2" />
-          <Sfigcaption>
-            <SH2>React + TypeScript</SH2>
-            <SP>
-              TypeScriptを使用したユーザー管理アプリ。
-              <br />
-              フロントのみの実装。ID1~10でログイン。
-            </SP>
-          </Sfigcaption>
-        </SFigure>
-        <SFigure>
-          <SImg src={works03} alt="work3" />
-          <Sfigcaption>
-            <SH2>Framer Motion & React Reveal</SH2>
-            <SP>
-              Gatsby.jsを使用したポートフォリオサイト。
-              <br />
-              HTML5 UPのテンプレートを使用。
-            </SP>
-          </Sfigcaption>
-        </SFigure>
-        <SFigure>
-          <SImg src={works04} alt="work4" />
-          <Sfigcaption>
-            <SH2>React + Gatsby</SH2>
-            <SP>
-              Gatsby.jsを使用したポートフォリオサイト。
-              <br />
-              HTML5 UPのテンプレートを使用。
-            </SP>
-          </Sfigcaption>
-        </SFigure>
+        {WorksData.map((works, index) => (
+          <SFigure>
+            <SImg src={images[index]} alt={works.alt} />
+            <Sfigcaption>
+              <SH2>{works.heading}</SH2>
+              <SP>
+                {works.text}
+                <br />
+                {works.lowerText}
+              </SP>
+            </Sfigcaption>
+          </SFigure>
+        ))}
       </SWorks>
     </Container>
   );
@@ -107,7 +77,7 @@ const SFigure = styled.figure`
       transform: scale(1.2);
     }
     & figcaption {
-      background-color: rgba(46, 28, 117, 0.3);
+      background-color: rgba(46, 28, 117, 0.8);
       /* background-color: rgba(245, 245, 245, 0.2); */
     }
 
@@ -135,7 +105,7 @@ const Sfigcaption = styled.figcaption`
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: rgba(46, 28, 117, 0.2);
+  background-color: rgba(46, 28, 117, 0.3);
   backface-visibility: hidden;
   transition: background-color 0.55s;
   color: #fff;

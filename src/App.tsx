@@ -1,6 +1,13 @@
-import { createContext, Dispatch, SetStateAction, useState } from "react";
+import {
+  createContext,
+  Dispatch,
+  SetStateAction,
+  useState,
+  useEffect,
+} from "react";
 import styled from "styled-components";
 import { Divider } from "./components/atoms/Divider";
+import { Loader } from "./components/atoms/Loader";
 
 import { Title } from "./components/molecules/Title";
 import { Footer } from "./components/organisms/Footer";
@@ -21,28 +28,42 @@ export const TitleTextContext = createContext({} as TitleContextType);
 
 function App() {
   const [title, setTitle] = useState<string>("Welcome");
+  const [loading, setLoading] = useState<Boolean>(true);
   const value: TitleContextType = {
     title,
     setTitle,
   };
+
+  useEffect(() => {
+    setInterval(() => {
+      setLoading(false);
+    }, 200);
+  }, [setLoading]);
+
   return (
     <TitleTextContext.Provider value={value}>
-      <Header />
-      <SMainContent>
-        <Title title={title} />
-        <Main />
-        <Divider />
-        <About />
-        <Divider />
-        <History />
-        <Divider />
-        <Works />
-        <Divider />
-        <Skils />
-        <Divider />
-        <Contact />
-      </SMainContent>
-      <Footer />
+      {loading ? (
+        <Loader />
+      ) : (
+        <>
+          <Header />
+          <SMainContent>
+            <Title title={title} />
+            <Main />
+            <Divider />
+            <About />
+            <Divider />
+            <History />
+            <Divider />
+            <Works />
+            <Divider />
+            <Skils />
+            <Divider />
+            <Contact />
+          </SMainContent>
+          <Footer />
+        </>
+      )}
     </TitleTextContext.Provider>
   );
 }
