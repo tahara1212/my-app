@@ -1,21 +1,28 @@
-import { memo } from "react";
+import { memo, VFC } from "react";
 import styled from "styled-components";
+import { Link } from "react-scroll";
 
-export const Header = memo(() => {
+import { HeaderList } from "../atoms/HeaderList";
+import { Time } from "../atoms/Time";
+
+export const Header: VFC = memo(() => {
   return (
     <SHeader>
       <SLogo>
-        <h1>sT</h1>
+        <Link to="Main" spy={true} smooth={true} offset={-120} duration={500}>
+          <h1>sT</h1>
+        </Link>
       </SLogo>
       <SNav>
         <SUl>
-          <SLi>About</SLi>
-          <SLi>History</SLi>
-          <SLi>Works</SLi>
-          <SLi>Skils</SLi>
-          <SLi>Contact</SLi>
+          <HeaderList idName="About" />
+          <HeaderList idName="History" />
+          <HeaderList idName="Works" />
+          <HeaderList idName="Skils" />
+          <HeaderList idName="Contact" />
         </SUl>
       </SNav>
+      <Time />
     </SHeader>
   );
 });
@@ -25,6 +32,7 @@ const SHeader = styled.header`
   justify-content: space-between;
   width: 100%;
   height: 80px;
+  line-height: 80px;
   padding: 0 40px;
   font-size: 1.6rem;
   pointer-events: auto;
@@ -40,6 +48,7 @@ const SLogo = styled.div`
   margin-right: 10px;
   padding: 0;
   height: 100%;
+  cursor: pointer;
   opacity: 0.8;
 `;
 const SNav = styled.nav`
@@ -53,14 +62,4 @@ const SUl = styled.ul`
   display: flex;
   list-style: none;
   justify-content: space-around;
-`;
-
-const SLi = styled.li`
-  cursor: pointer;
-  height: 50px;
-  transition: all 0.5s;
-  &:hover {
-    border-bottom: 1px solid black;
-    font-size: 20px;
-  }
 `;

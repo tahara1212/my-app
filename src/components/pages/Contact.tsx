@@ -1,4 +1,4 @@
-import { useEffect, useContext, VFC } from "react";
+import { memo, useEffect, useContext, VFC } from "react";
 import styled from "styled-components";
 import { useInView } from "react-intersection-observer";
 import { TextField, Button } from "@material-ui/core";
@@ -7,8 +7,9 @@ import Tooltip from "@material-ui/core/Tooltip";
 
 import { TitleTextContext } from "../../App";
 import { Container } from "../templates/Container";
+import cbg from "../../images/kbg.jpeg";
 
-export const Contact: VFC = () => {
+export const Contact: VFC = memo(() => {
   const { setTitle } = useContext(TitleTextContext);
 
   const { ref, inView } = useInView({
@@ -31,9 +32,11 @@ export const Contact: VFC = () => {
   }, [inView, setTitle]);
 
   return (
-    <Container>
+    <Container id="Contact">
       <SContact ref={ref}>
-        <SContactSnsBox></SContactSnsBox>
+        <SContactSnsBox>
+          <SContactMask></SContactMask>
+        </SContactSnsBox>
         <SContactFormBox>
           <SContactInputArea>
             <form onSubmit={handleSubmit(on_submit)}>
@@ -44,7 +47,7 @@ export const Contact: VFC = () => {
                   <STextField id="standard-basic" label="Name" {...field} />
                 )}
               />
-              {errors.name && <p>Your input is required</p>}
+              {errors.name && <p>お名前を入力してください</p>}
               <Controller
                 control={control}
                 {...register("email", { required: true })}
@@ -52,7 +55,7 @@ export const Contact: VFC = () => {
                   <STextField id="standard-basic" label="Email" {...field} />
                 )}
               />
-              {errors.email && <p>Your input is required</p>}
+              {errors.email && <p>メールアドレスを入力してください</p>}
               <Controller
                 control={control}
                 name="message"
@@ -70,12 +73,17 @@ export const Contact: VFC = () => {
                       rows={4}
                       multiline
                       variant="outlined"
-                      placeholder="Message"
+                      placeholder="Msessage"
                     />
                   </Tooltip>
                 )}
               />
-              <Button variant="contained" type="submit">
+              <Button
+                variant="contained"
+                type="submit"
+                fullWidth={true}
+                color="inherit"
+              >
                 Submit
               </Button>
             </form>
@@ -84,22 +92,32 @@ export const Contact: VFC = () => {
       </SContact>
     </Container>
   );
-};
+});
 
 const SContact = styled.div`
-  /* width: calc(100% - 80px); */
   width: 100%;
   height: 100%;
   display: flex;
   justify-content: space-between;
   margin: 0 auto;
-  /* flex-wrap: wrap; */
-  /* background-color: whitesmoke; */
-  /* align-items: center; */
+`;
+
+const SContactMask = styled.div`
+  width: 100%;
+  height: 100%;
+  background-color: rgba(245, 245, 245, 0.9);
+  position: absolute;
 `;
 
 const SContactSnsBox = styled.div`
   width: 50%;
+  height: 80vh;
+  position: relative;
+  background-image: url(${cbg});
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  border-radius: 5px;
 `;
 
 const SContactFormBox = styled.div`
@@ -113,7 +131,7 @@ const SContactInputArea = styled.div`
   position: absolute;
   top: 50%;
   left: 50%;
-  transform: translate(-25%, -50%);
+  transform: translate(-30%, -50%);
 `;
 
 const STextField = styled(TextField)`

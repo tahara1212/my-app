@@ -1,7 +1,9 @@
 import { createContext, Dispatch, SetStateAction, useState } from "react";
 import styled from "styled-components";
+import { Divider } from "./components/atoms/Divider";
 
 import { Title } from "./components/molecules/Title";
+import { Footer } from "./components/organisms/Footer";
 import { Header } from "./components/organisms/Header";
 import { About } from "./components/pages/About";
 import { Contact } from "./components/pages/Contact";
@@ -29,11 +31,17 @@ function App() {
       <SMainContent>
         <Title title={title} />
         <Main />
+        <Divider />
         <About />
+        <Divider />
         <History />
+        <Divider />
         <Works />
+        <Divider />
         <Skils />
+        <Divider />
         <Contact />
+        <Footer />
       </SMainContent>
     </TitleTextContext.Provider>
   );

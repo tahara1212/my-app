@@ -22,7 +22,7 @@ export const Main: VFC = memo(() => {
   }, [inView, setTitle]);
 
   return (
-    <SContainer>
+    <SContainer id="Main">
       <SMain ref={ref}>
         <SMask></SMask>
         <SMainBg

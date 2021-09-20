@@ -50,7 +50,7 @@ export const Skils: VFC = memo(() => {
   }, [inView, setTitle]);
 
   return (
-    <Container>
+    <Container id="Skils">
       <SSkils ref={ref}>
         {inView && (
           <Chart data={data}>
@@ -59,7 +59,7 @@ export const Skils: VFC = memo(() => {
             <BarSeries
               valueField="level"
               argumentField="skil"
-              color="lightblue"
+              color="lightgray"
               barWidth={0.5}
             />
             <Animation />
@@ -72,8 +72,9 @@ export const Skils: VFC = memo(() => {
 
 const SSkils = styled.div`
   width: 100%;
+  height: 100%;
   position: absolute;
   top: 50%;
   left: 50%;
-  transform: translate(-50%, -50%);
+  transform: translate(-50%, -35%);
 `;

@@ -23,7 +23,7 @@ export const History: VFC = memo(() => {
   }, [inView, setTitle]);
 
   return (
-    <Container>
+    <Container id="History">
       <SHistory ref={ref}>
         <SHistoryTextBox>
           <HistoryText />

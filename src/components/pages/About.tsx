@@ -1,5 +1,4 @@
-import { memo, VFC } from "react";
-import { useContext, useEffect } from "react";
+import { memo, VFC, useContext, useEffect } from "react";
 import styled from "styled-components";
 import { useInView } from "react-intersection-observer";
 
@@ -22,7 +21,7 @@ export const About: VFC = memo(() => {
   }, [inView, setTitle]);
 
   return (
-    <Container>
+    <Container id="About">
       <SAbout ref={ref}>
         <SAboutImageBox>
           <SAboutImage></SAboutImage>

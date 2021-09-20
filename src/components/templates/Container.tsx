@@ -3,11 +3,12 @@ import styled from "styled-components";
 
 type Props = {
   children: ReactNode;
+  id: string;
 };
 
 export const Container: VFC<Props> = memo((props) => {
-  const { children } = props;
-  return <SContainer>{children}</SContainer>;
+  const { children, id } = props;
+  return <SContainer id={id}>{children}</SContainer>;
 });
 
 const SContainer = styled.div`

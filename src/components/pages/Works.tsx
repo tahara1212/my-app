@@ -25,7 +25,7 @@ export const Works: VFC = memo(() => {
   }, [inView, setTitle]);
 
   return (
-    <Container>
+    <Container id="Works">
       <SWorks ref={ref}>
         <SFigure>
           <SImg src={works01} alt="work1" />
@@ -107,7 +107,8 @@ const SFigure = styled.figure`
       transform: scale(1.2);
     }
     & figcaption {
-      background-color: rgba(46, 28, 117, 0.5);
+      background-color: rgba(46, 28, 117, 0.3);
+      /* background-color: rgba(245, 245, 245, 0.2); */
     }
 
     & h2 {
