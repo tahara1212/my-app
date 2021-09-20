@@ -47,12 +47,13 @@ const SLi = styled.li`
   cursor: pointer;
   height: 50px;
   /* opacity: 1; */
-  /* transition: opacity 0.3s; */
+  transition: color 0.3s;
   &:hover {
     /* opacity: 0.6; */
-    border-bottom: 1px solid black;
+    /* border-bottom: 1px solid black; */
     /* font-size: 20px; */
     /* transform: scale(1.2); */
+    color: gray;
   }
 `;
 
@@ -67,7 +68,10 @@ const SLi = styled.li`
 // `;
 
 const AnimateDefault = {
-  scale: 1.2,
+  y: -5,
+  scale: 1.3,
+  // color: "gray",
+  borderBottom: "gray",
 };
 
 const TransitionDefault = {
@@ -85,5 +89,5 @@ const SLiActive = styled(motion.li)`
   border-bottom: 1px solid black;
   /* font-size: 20px; */
   /* transform: rotate(10deg); */
-  /* color: red; */
+  color: gray;
 `;

@@ -41,8 +41,8 @@ function App() {
         <Skils />
         <Divider />
         <Contact />
-        <Footer />
       </SMainContent>
+      <Footer />
     </TitleTextContext.Provider>
   );
 }
