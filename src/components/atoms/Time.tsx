@@ -1,25 +1,18 @@
-import dayjs from "dayjs";
-import { useEffect, useState } from "react";
+import { memo, useEffect, useState, VFC } from "react";
 
-export default function useWatchs(interval: number) {
-  const [time, updateTime] = useState(Date.now());
+export const Time: VFC = memo(() => {
+  const [time, setTime] = useState<number>(0);
 
   useEffect(() => {
-    const times = setTimeout(() => updateTime(Date.now()), interval);
-    return () => {
-      clearTimeout(times);
-    };
-  }, [time]); // eslint-disable-line react-hooks/exhaustive-deps
-
-  return time;
-}
-
-export const Time = () => {
-  const time = useWatchs(1000);
+    const id = setInterval(() => {
+      setTime(time + 10);
+    }, 10000);
+    return () => clearInterval(id);
+  }, [time]);
 
   return (
     <div>
-      <p>{dayjs(time).format("ss")}</p>
+      <p>{time}s</p>
     </div>
   );
-};
+});
