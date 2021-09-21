@@ -38,7 +38,7 @@ const SHeader = styled.header`
   pointer-events: auto;
   position: fixed;
   background-color: whitesmoke;
-  z-index: 10;
+  z-index: 4;
 `;
 const SLogo = styled.div`
   position: relative;

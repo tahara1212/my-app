@@ -23,9 +23,18 @@ export const Main: VFC = memo(() => {
 
   return (
     <SContainer id="Main">
-      <SMain ref={ref}>
+      <SMain
+        ref={ref}
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        exit={{ opacity: 0 }}
+        transition={{ delay: 1.1 }}
+      >
         <SMask></SMask>
-        <SMainBg></SMainBg>
+        <SMainBg
+          animate={AnimateDefault}
+          transition={TransitionDefault}
+        ></SMainBg>
       </SMain>
     </SContainer>
   );
@@ -35,6 +44,18 @@ const SMask = styled.div`
   background-color: rgba(0, 153, 255, 0.3);
 `;
 
+const AnimateDefault = {
+  scale: 1,
+};
+
+const TransitionDefault = {
+  from: 1.5,
+  repeat: Infinity,
+  duration: 10,
+  ease: "easeOut",
+  delay: 1.5,
+};
+
 const SContainer = styled.div`
   width: 100%;
   height: auto;
@@ -42,42 +63,15 @@ const SContainer = styled.div`
   justify-content: center;
   align-items: center;
   margin-bottom: 10vh;
-  overflow: hidden;
 `;
 
-const KFMain = keyframes`
-0% {
-    opacity: 0;
-  }
-  50% {
-    opacity: 0;
-  }
-  50.1% {
-    opacity: 1;
-    transform: scale(1.5);
-  }
-  100% {
-    opacity: 1;
-    /* transform: scale(1); */
-  }
-`;
-
-const SMain = styled.div`
+const SMain = styled(motion.div)`
   width: calc(100% - 80px);
   height: calc(95vh - 90px);
   overflow: hidden;
-  animation-name: ${KFMain};
-  animation-duration: 0.8s;
-  /* animation-timing-function: ease-out; */
-  /* animation-delay: 2s; */
 `;
 
-const KFMainBg = keyframes`
-  0% {transform: scale(1);}
-  100% {transform: scale(1.5);}
-`;
-
-const SMainBg = styled.div`
+const SMainBg = styled(motion.div)`
   width: calc(100%);
   height: calc(95vh - 90px);
   margin: 0 auto;
@@ -86,8 +80,4 @@ const SMainBg = styled.div`
   background-repeat: no-repeat;
   background-size: cover;
   overflow: hidden;
-  animation: ${KFMainBg};
-  animation-duration: 10s;
-  animation-timing-function: ease-out;
-  animation-iteration-count: infinite;
 `;

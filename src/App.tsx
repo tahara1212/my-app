@@ -8,6 +8,7 @@ import {
 import styled from "styled-components";
 import { Divider } from "./components/atoms/Divider";
 import { Loader } from "./components/atoms/Loader";
+import { MainMask } from "./components/atoms/MainMask";
 
 import { Title } from "./components/molecules/Title";
 import { Footer } from "./components/organisms/Footer";
@@ -37,7 +38,7 @@ function App() {
   useEffect(() => {
     setInterval(() => {
       setLoading(false);
-    }, 200);
+    }, 2700);
   }, [setLoading]);
 
   return (
@@ -46,6 +47,7 @@ function App() {
         <Loader />
       ) : (
         <>
+          <MainMask />
           <Header />
           <SMainContent>
             <Title title={title} />

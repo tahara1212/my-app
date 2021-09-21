@@ -25,7 +25,7 @@ const SVG = styled.svg`
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%) rotate(-90deg);
-  z-index: 1;
+  z-index: 6;
 `;
 
 const KFCircle = keyframes`
@@ -40,8 +40,13 @@ const SCircle = styled.circle`
   animation: ${KFCircle} 10s infinite ease-out;
 `;
 
+const KFMainText = keyframes`
+  0% { opacity: 0;}
+  100% { opacity: 1; }
+`;
+
 const SMainText = styled.p`
-  z-index: 2;
+  z-index: 6;
   position: fixed;
   top: 50%;
   left: 50%;
@@ -49,4 +54,8 @@ const SMainText = styled.p`
   transform: translate(-50%, -50%);
   font-size: 160px;
   font-family: "Allison", serif;
+  opacity: 0;
+  animation: ${KFMainText} 0.5s ease-out;
+  animation-delay: 0.5s;
+  animation-fill-mode: forwards;
 `;

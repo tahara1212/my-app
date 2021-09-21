@@ -1,5 +1,5 @@
 import { memo, useContext, VFC } from "react";
-import styled from "styled-components";
+import styled, { keyframes } from "styled-components";
 import { Link } from "react-scroll";
 import { motion } from "framer-motion";
 
@@ -15,7 +15,7 @@ export const HeaderList: VFC<Props> = memo((props) => {
   return (
     <>
       {title === idName ? (
-        <SLiActive animate={AnimateDefault} transition={TransitionDefault}>
+        <SLiActive>
           <Link
             to={idName}
             spy={true}
@@ -43,51 +43,49 @@ export const HeaderList: VFC<Props> = memo((props) => {
   );
 });
 
+const KFLi = keyframes`
+  0% {
+    left: 50%;
+    right: 50%;
+  }
+  100% {
+    left: 0;
+    right: 0;
+  }
+
+`;
+
 const SLi = styled.li`
   cursor: pointer;
   height: 50px;
-  /* opacity: 1; */
-  transition: color 0.3s;
-  &:hover {
-    /* opacity: 0.6; */
-    /* border-bottom: 1px solid black; */
-    /* font-size: 20px; */
-    /* transform: scale(1.2); */
-    color: gray;
+  position: relative;
+  &::before {
+    content: "";
+    border-bottom: 1px solid black;
+    height: 30px;
+    position: absolute;
+    top: 25px;
+    left: 50%;
+    right: 50%;
+    pointer-events: none;
+  }
+  &:hover::before {
+    animation: ${KFLi} 0.3s;
+    animation-fill-mode: forwards;
   }
 `;
 
-// const SLiActive = styled.li`
-//   cursor: pointer;
-//   height: 50px;
-//   transition: all 0.3s;
-//   border-bottom: 1px solid black;
-//   /* font-size: 20px; */
-//   transform: rotate(10deg);
-//   /* color: red; */
-// `;
-
-const AnimateDefault = {
-  y: -5,
-  scale: 1.3,
-  // color: "gray",
-  borderBottom: "gray",
-};
-
-const TransitionDefault = {
-  //   delay: 0.3,
-  duration: 0.2,
-  //   type: "spring",
-  //   stiffness: 100,
-  //   ease: "easeOut",
-};
-
-const SLiActive = styled(motion.li)`
-  cursor: pointer;
-  height: 50px;
-  transition: all 0.3s;
-  border-bottom: 1px solid black;
-  /* font-size: 20px; */
-  /* transform: rotate(10deg); */
+const SLiActive = styled(SLi)`
   color: gray;
+  position: relative;
+  &::before {
+    content: "";
+    border-bottom: 1px solid gray;
+    height: 30px;
+    position: absolute;
+    top: 25px;
+    left: 0;
+    right: 0;
+    pointer-events: none;
+  }
 `;
