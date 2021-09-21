@@ -72,8 +72,8 @@ const SMain = styled.div`
 `;
 
 const KFMainBg = keyframes`
-  0% {transform: scale(1);}
-  100% {transform: scale(1.5);}
+  0% {transform: scale(1) rotate(0deg);}
+  100% {transform: scale(1.5) rotate(15deg);}
 `;
 
 const SMainBg = styled.div`
