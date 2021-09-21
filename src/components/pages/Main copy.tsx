@@ -1,6 +1,6 @@
 import { memo, VFC } from "react";
 import { useContext, useEffect } from "react";
-import styled, { keyframes } from "styled-components";
+import styled from "styled-components";
 import bg from "../../images/bg.jpeg";
 import { motion } from "framer-motion";
 
