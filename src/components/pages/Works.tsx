@@ -2,7 +2,6 @@ import { memo, VFC } from "react";
 import { useContext, useEffect } from "react";
 import styled from "styled-components";
 
-import variable from "../../css/variables.json";
 import works01 from "../../images/works01.jpg";
 import works02 from "../../images/works02.png";
 import works03 from "../../images/works03.jpeg";
