@@ -3,6 +3,7 @@ import styled, { keyframes } from "styled-components";
 import { Link } from "react-scroll";
 
 import { TitleTextContext } from "../../App";
+import variable from "../../css/variables.json";
 
 type Props = {
   idName: string;
@@ -75,11 +76,13 @@ const SLi = styled.li`
 `;
 
 const SLiActive = styled(SLi)`
-  color: gray;
+  /* color: gray; */
+  color: ${variable.subColor};
   position: relative;
   &::before {
     content: "";
-    border-bottom: 1px solid gray;
+    border-bottom: 1px solid;
+    border-color: ${variable.subColor};
     height: 30px;
     position: absolute;
     top: 25px;

@@ -1,4 +1,5 @@
 import { memo, useEffect, useState, VFC } from "react";
+import styled from "styled-components";
 
 export const Time: VFC = memo(() => {
   const [time, setTime] = useState<number>(0);
@@ -11,8 +12,13 @@ export const Time: VFC = memo(() => {
   }, [time]);
 
   return (
-    <div>
+    <STime>
       <p>{time}s</p>
-    </div>
+    </STime>
   );
 });
+
+const STime = styled.div`
+  width: 5%;
+  text-align: right;
+`;

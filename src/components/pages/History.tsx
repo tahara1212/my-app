@@ -1,9 +1,10 @@
 import { memo, VFC } from "react";
 import { useContext, useEffect } from "react";
-import styled from "styled-components";
+import styled, { keyframes } from "styled-components";
 import history from "../../images/history.jpeg";
 import { useInView } from "react-intersection-observer";
 
+import variable from "../../css/variables.json";
 import { TitleTextContext } from "../../App";
 import { HistoryText } from "../molecules/HistoryText";
 import { Container } from "../templates/Container";
@@ -48,7 +49,10 @@ const SHistoryTextBox = styled.div`
   width: 50%;
   height: 94%;
   overflow-y: auto;
-
+  &::-webkit-scrollbar {
+    width: 16px;
+    height: 16px;
+  }
   &::-webkit-scrollbar-track {
     background-color: whitesmoke;
   }
@@ -56,14 +60,35 @@ const SHistoryTextBox = styled.div`
 
 const SHistoryImageBox = styled.div`
   width: 50%;
+  height: 80vh;
+  overflow: hidden;
+`;
+
+const KFHistoryImage = keyframes`
+  0% {
+    transform: scale(1.7) translate(0,14vh) rotate(0deg);
+  }
+  100% {
+    transform: scale(1.7) translate(-6vw,-14vh) rotate(10deg);
+  }
 `;
 
 const SHistoryImage = styled.div`
   height: 80vh;
   opacity: 0.8;
   background-image: url(${history});
-  background-position: center;
+  background-position: top 10% right 90%;
   background-repeat: no-repeat;
   background-size: cover;
   border-radius: 5px;
+  transform: scale(1.5);
+  animation: ${KFHistoryImage} 25s infinite alternate;
+  &::before {
+    content: "";
+    background-color: ${variable.maskColor};
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    opacity: 0.3;
+  }
 `;

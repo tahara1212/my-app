@@ -21,7 +21,10 @@ export const Title: VFC<TitleProps> = memo((props) => {
 const SVG = styled.svg`
   /* transform: rotate(-90deg); */
   position: fixed;
-  background-color: transparent;
+  /* background-color: transparent; */
+  background-color: rgba(244, 244, 244, 0.4);
+  /* background-color: rgba(96, 74, 185, 0.1); */
+  border-radius: 50%;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%) rotate(-90deg);

@@ -1,8 +1,8 @@
 import { createGlobalStyle } from "styled-components";
 
-import cssVariables from "./variables2.json";
+import variable from "./variables.json";
 import "./fonts.css";
-const variable = cssVariables.variable;
+// const variable = cssVariables.variable;
 
 export const GlobalStyle = createGlobalStyle`
   body {

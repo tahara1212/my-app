@@ -10,6 +10,7 @@ import {
 import "@devexpress/dx-react-chart-bootstrap4/dist/dx-react-chart-bootstrap4.css";
 import { Animation } from "@devexpress/dx-react-chart";
 
+import variable from "../../css/variables.json";
 import { TitleTextContext } from "../../App";
 import { Container } from "../templates/Container";
 import { SkilsData } from "../../data/SkilsData";
@@ -38,7 +39,7 @@ export const Skils: VFC = memo(() => {
             <BarSeries
               valueField="level"
               argumentField="skil"
-              color="lightgray"
+              color={variable.subColor}
               barWidth={0.5}
             />
             <Animation />

@@ -5,6 +5,7 @@ import { TextField, Button } from "@material-ui/core";
 import { useForm, Controller } from "react-hook-form";
 import Tooltip from "@material-ui/core/Tooltip";
 
+import variable from "../../css/variables.json";
 import { TitleTextContext } from "../../App";
 import { Container } from "../templates/Container";
 import cbg from "../../images/kbg.jpeg";
@@ -34,9 +35,7 @@ export const Contact: VFC = memo(() => {
   return (
     <Container id="Contact">
       <SContact ref={ref}>
-        <SContactSnsBox>
-          <SContactMask></SContactMask>
-        </SContactSnsBox>
+        <SContactSnsBox></SContactSnsBox>
         <SContactFormBox>
           <SContactInputArea>
             <form onSubmit={handleSubmit(on_submit)}>
@@ -60,11 +59,7 @@ export const Contact: VFC = memo(() => {
                 control={control}
                 name="message"
                 render={({ field }) => (
-                  <Tooltip
-                    title="You can fill in freely"
-                    placement="top-start"
-                    arrow
-                  >
+                  <Tooltip title="" placement="top-start" arrow>
                     <TextField
                       {...field}
                       label="Msessage"
@@ -78,14 +73,9 @@ export const Contact: VFC = memo(() => {
                   </Tooltip>
                 )}
               />
-              <Button
-                variant="contained"
-                type="submit"
-                fullWidth={true}
-                color="inherit"
-              >
+              <SButton variant="contained" type="submit" fullWidth={true}>
                 Submit
-              </Button>
+              </SButton>
             </form>
           </SContactInputArea>
         </SContactFormBox>
@@ -94,19 +84,16 @@ export const Contact: VFC = memo(() => {
   );
 });
 
+const SButton = styled(Button)`
+  background-color: ${variable.subColor} !important;
+`;
+
 const SContact = styled.div`
   width: 100%;
   height: 100%;
   display: flex;
   justify-content: space-between;
   margin: 0 auto;
-`;
-
-const SContactMask = styled.div`
-  width: 100%;
-  height: 100%;
-  background-color: rgba(245, 245, 245, 0.9);
-  position: absolute;
 `;
 
 const SContactSnsBox = styled.div`
@@ -118,6 +105,14 @@ const SContactSnsBox = styled.div`
   background-repeat: no-repeat;
   background-size: cover;
   border-radius: 5px;
+  &::before {
+    content: "";
+    width: 100%;
+    height: 100%;
+    background-color: ${variable.maskColor};
+    position: absolute;
+    opacity: 0.2;
+  }
 `;
 
 const SContactFormBox = styled.div`
@@ -135,6 +130,6 @@ const SContactInputArea = styled.div`
 `;
 
 const STextField = styled(TextField)`
-  color: black;
+  /* color: black; */
   width: 100%;
 `;

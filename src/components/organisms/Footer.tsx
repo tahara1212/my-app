@@ -5,6 +5,8 @@ import { faTwitter } from "@fortawesome/free-brands-svg-icons";
 import { faGithub } from "@fortawesome/free-brands-svg-icons";
 import { faFacebook } from "@fortawesome/free-brands-svg-icons";
 
+import variable from "../../css/variables.json";
+
 export const Footer = memo(() => {
   return (
     <SFooter>
@@ -44,7 +46,8 @@ const SFooter = styled.footer`
   padding: 0 40px;
   text-align: center;
   line-height: 80px;
-  background-color: lightgray;
+  /* background-color: lightgray; */
+  background-color: ${variable.subColor};
 `;
 
 const SContactIconArea = styled.div`

@@ -2,6 +2,7 @@ import { memo, VFC } from "react";
 import styled from "styled-components";
 import { Link } from "react-scroll";
 
+import variable from "../../css/variables.json";
 import { HeaderList } from "../atoms/HeaderList";
 import { Time } from "../atoms/Time";
 
@@ -37,7 +38,7 @@ const SHeader = styled.header`
   font-size: 1.6rem;
   pointer-events: auto;
   position: fixed;
-  background-color: whitesmoke;
+  background-color: ${variable.bgColor};
   z-index: 4;
 `;
 const SLogo = styled.div`

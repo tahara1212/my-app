@@ -38,7 +38,7 @@ export const HistoryText: VFC = memo(() => {
 });
 
 const timeline = {
-  padding: "6px 10%",
+  width: "80%",
 };
 
 const oppositeContent = {

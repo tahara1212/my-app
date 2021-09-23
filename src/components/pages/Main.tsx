@@ -3,6 +3,7 @@ import { useContext, useEffect } from "react";
 import styled, { keyframes } from "styled-components";
 import bg from "../../images/bg.jpeg";
 
+import variable from "../../css/variables.json";
 import { useInView } from "react-intersection-observer";
 import { TitleTextContext } from "../../App";
 
@@ -23,16 +24,11 @@ export const Main: VFC = memo(() => {
   return (
     <SContainer id="Main">
       <SMain ref={ref}>
-        <SMask></SMask>
         <SMainBg></SMainBg>
       </SMain>
     </SContainer>
   );
 });
-
-const SMask = styled.div`
-  background-color: rgba(0, 153, 255, 0.3);
-`;
 
 const SContainer = styled.div`
   width: 100%;
@@ -72,8 +68,8 @@ const SMain = styled.div`
 `;
 
 const KFMainBg = keyframes`
-  0% {transform: scale(1) rotate(0deg);}
-  100% {transform: scale(1.5) rotate(15deg);}
+  0% {transform: scale(1);}
+  100% {transform: scale(1.5);}
 `;
 
 const SMainBg = styled.div`
@@ -89,4 +85,13 @@ const SMainBg = styled.div`
   animation-duration: 10s;
   animation-timing-function: ease-out;
   animation-iteration-count: infinite;
+  position: relative;
+  &::before {
+    content: "";
+    background-color: ${variable.maskColor};
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    opacity: 0.2;
+  }
 `;

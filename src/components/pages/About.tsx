@@ -1,7 +1,8 @@
 import { memo, VFC, useContext, useEffect } from "react";
-import styled from "styled-components";
+import styled, { keyframes } from "styled-components";
 import { useInView } from "react-intersection-observer";
 
+import variable from "../../css/variables.json";
 import { TitleTextContext } from "../../App";
 import about from "../../images/about.jpeg";
 import { Container } from "../templates/Container";
@@ -67,6 +68,17 @@ const SAboutText = styled.p`
 
 const SAboutImageBox = styled.div`
   width: 50%;
+  height: 80vh;
+  overflow: hidden;
+`;
+
+const KFAboutImage = keyframes`
+  0% {
+    transform: scale(1) rotate(0deg);
+  }
+  100% {
+    transform: scale(1.5) rotate(20deg);
+  }
 `;
 
 const SAboutImage = styled.div`
@@ -77,4 +89,14 @@ const SAboutImage = styled.div`
   background-repeat: no-repeat;
   background-size: cover;
   border-radius: 5px;
+  position: relative;
+  /* animation: ${KFAboutImage} 13s infinite; */
+  &::before {
+    content: "";
+    background-color: ${variable.maskColor};
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    opacity: 0.2;
+  }
 `;

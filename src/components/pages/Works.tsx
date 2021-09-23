@@ -2,6 +2,7 @@ import { memo, VFC } from "react";
 import { useContext, useEffect } from "react";
 import styled from "styled-components";
 
+import variable from "../../css/variables.json";
 import works01 from "../../images/works01.jpg";
 import works02 from "../../images/works02.png";
 import works03 from "../../images/works03.jpeg";
@@ -77,8 +78,8 @@ const SFigure = styled.figure`
       transform: scale(1.2);
     }
     & figcaption {
-      background-color: rgba(46, 28, 117, 0.8);
-      /* background-color: rgba(245, 245, 245, 0.2); */
+      /* background-color: rgba(96, 74, 185, 0.6); */
+      background-color: rgba(135, 206, 235, 0.9);
     }
 
     & h2 {
@@ -105,7 +106,8 @@ const Sfigcaption = styled.figcaption`
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: rgba(46, 28, 117, 0.3);
+  /* background-color: rgba(62, 53, 97, 0.2); */
+  background-color: rgba(135, 206, 235, 0.3);
   backface-visibility: hidden;
   transition: background-color 0.55s;
   color: #fff;
