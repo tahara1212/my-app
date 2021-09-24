@@ -1,13 +1,18 @@
 import { memo, VFC } from "react";
 import { useContext, useEffect } from "react";
 import styled, { keyframes } from "styled-components";
-import bg from "../../images/bg.jpeg";
 
+import bg from "../../images/bg.jpeg";
 import variable from "../../css/variables.json";
 import { useInView } from "react-intersection-observer";
 import { TitleTextContext } from "../../App";
 
+// const imgPath = "/images/bg.jpeg";
+
 export const Main: VFC = memo(() => {
+  const img = new Image();
+  img.src = bg; // プリロードする
+  console.log(img.src);
   const { setTitle } = useContext(TitleTextContext);
 
   const { ref, inView } = useInView({
