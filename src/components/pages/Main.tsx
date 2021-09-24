@@ -13,12 +13,10 @@ export const Main: VFC = memo(() => {
   const img = new Image();
   img.src = bg; // プリロードする
   console.log(img.src);
-  useEffect(() => {
-    img.onload = () => {
-      // 読み込み完了時に発火する関数
-      alert("comp");
-    };
-  }, []);
+  img.onload = () => {
+    // 読み込み完了時に発火する関数
+    alert("comp");
+  };
 
   const { setTitle } = useContext(TitleTextContext);
 
