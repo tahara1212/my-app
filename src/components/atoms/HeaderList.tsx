@@ -3,7 +3,7 @@ import styled, { keyframes } from "styled-components";
 import { Link } from "react-scroll";
 
 import { TitleTextContext } from "../../App";
-import variable from "../../css/variables.json";
+// import variable from "../../css/variables.json";
 
 type Props = {
   idName: string;
@@ -20,7 +20,7 @@ export const HeaderList: VFC<Props> = memo((props) => {
             to={idName}
             spy={true}
             smooth={true}
-            offset={-120}
+            offset={-80}
             duration={500}
           >
             {idName}
@@ -32,7 +32,7 @@ export const HeaderList: VFC<Props> = memo((props) => {
             to={idName}
             spy={true}
             smooth={true}
-            offset={-120}
+            offset={-80}
             duration={500}
           >
             {idName}
@@ -77,12 +77,12 @@ const SLi = styled.li`
 
 const SLiActive = styled(SLi)`
   /* color: gray; */
-  color: ${variable.subColor};
+  color: steelblue;
   position: relative;
   &::before {
     content: "";
     border-bottom: 1px solid;
-    border-color: ${variable.subColor};
+    border-color: steelblue;
     height: 30px;
     position: absolute;
     top: 25px;
