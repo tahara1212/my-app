@@ -3,7 +3,7 @@ import {
   Dispatch,
   SetStateAction,
   useState,
-  useEffect,
+  // useEffect,
 } from "react";
 import styled from "styled-components";
 import { Divider } from "./components/atoms/Divider";
@@ -20,6 +20,8 @@ import { Main } from "./components/pages/Main";
 import { Skils } from "./components/pages/Skils";
 import { Works } from "./components/pages/Works";
 
+import bg from "./images/bg.jpeg";
+
 export type TitleContextType = {
   title: string;
   setTitle: Dispatch<SetStateAction<string>>;
@@ -35,11 +37,19 @@ function App() {
     setTitle,
   };
 
-  useEffect(() => {
-    setInterval(() => {
-      setLoading(false);
-    }, 2700);
-  }, [setLoading]);
+  const img = new Image();
+  img.src = bg; // プリロードする
+  console.log(img.src);
+  img.onload = () => {
+    // 読み込み完了時に発火する関数
+    setLoading(false);
+  };
+
+  // useEffect(() => {
+  //   setInterval(() => {
+  //     setLoading(false);
+  //   }, 2700);
+  // }, [setLoading]);
 
   return (
     <TitleTextContext.Provider value={value}>
