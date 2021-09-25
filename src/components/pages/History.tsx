@@ -29,7 +29,7 @@ export const History: VFC = memo(() => {
         <SHistoryTextBox>
           <HistoryText />
         </SHistoryTextBox>
-        <SHistoryImageBox>
+        <SHistoryImageBox inView={inView}>
           <SHistoryImage></SHistoryImage>
         </SHistoryImageBox>
       </SHistory>
@@ -37,12 +37,17 @@ export const History: VFC = memo(() => {
   );
 });
 
+type StyleProps = {
+  inView: boolean;
+};
+
 const SHistory = styled.div`
   width: 100%;
   height: 100%;
   display: flex;
   justify-content: space-between;
   margin: 0 auto;
+  padding-top: 3vh;
 `;
 
 const SHistoryTextBox = styled.div`
@@ -58,10 +63,13 @@ const SHistoryTextBox = styled.div`
   }
 `;
 
-const SHistoryImageBox = styled.div`
+const SHistoryImageBox = styled.div<StyleProps>`
   width: 50%;
   height: 80vh;
   overflow: hidden;
+  transition: all 1s ease;
+  transform: ${(props) => (props.inView ? "scale(1)" : "scale(0.98)")};
+  opacity: ${(props) => (props.inView ? 1 : 0)};
 `;
 
 const KFHistoryImage = keyframes`
@@ -82,7 +90,7 @@ const SHistoryImage = styled.div`
   background-size: cover;
   border-radius: 5px;
   transform: scale(1.5);
-  animation: ${KFHistoryImage} 25s infinite alternate;
+  animation: ${KFHistoryImage} 30s infinite alternate;
   &::before {
     content: "";
     background-color: ${variable.maskColor};

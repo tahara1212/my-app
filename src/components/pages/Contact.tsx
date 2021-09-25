@@ -35,7 +35,7 @@ export const Contact: VFC = memo(() => {
   return (
     <Container id="Contact">
       <SContact ref={ref}>
-        <SContactSnsBox></SContactSnsBox>
+        <SContactImageBox inView={inView}></SContactImageBox>
         <SContactFormBox>
           <SContactInputArea>
             <form onSubmit={handleSubmit(on_submit)}>
@@ -84,6 +84,10 @@ export const Contact: VFC = memo(() => {
   );
 });
 
+type StyleProps = {
+  inView: boolean;
+};
+
 const SButton = styled(Button)`
   background-color: ${variable.subColor} !important;
 `;
@@ -94,9 +98,10 @@ const SContact = styled.div`
   display: flex;
   justify-content: space-between;
   margin: 0 auto;
+  padding-top: 3vh;
 `;
 
-const SContactSnsBox = styled.div`
+const SContactImageBox = styled.div<StyleProps>`
   width: 50%;
   height: 80vh;
   position: relative;
@@ -105,6 +110,9 @@ const SContactSnsBox = styled.div`
   background-repeat: no-repeat;
   background-size: cover;
   border-radius: 5px;
+  transition: all 1s ease;
+  transform: ${(props) => (props.inView ? "scale(1)" : "scale(0.98)")};
+  opacity: ${(props) => (props.inView ? 1 : 0)};
   &::before {
     content: "";
     width: 100%;

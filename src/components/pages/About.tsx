@@ -24,14 +24,15 @@ export const About: VFC = memo(() => {
   return (
     <Container id="About">
       <SAbout ref={ref}>
-        <SAboutImageBox>
+        <SAboutImageBox inView={inView}>
           <SAboutImage></SAboutImage>
         </SAboutImageBox>
         <SAboutTextBox>
           <SAboutText>
-            <SAboutTitle>田原 隼併 / Shunpei Tahara</SAboutTitle>
-            <br />
-            1991年兵庫県生まれ
+            <SAboutTitle inView={inView}>
+              田原 隼併 / Shunpei Tahara
+            </SAboutTitle>
+            <SAboutSpan inView={inView}>1991年兵庫県生まれ</SAboutSpan>
           </SAboutText>
         </SAboutTextBox>
       </SAbout>
@@ -39,11 +40,18 @@ export const About: VFC = memo(() => {
   );
 });
 
+type StyleProps = {
+  inView: boolean;
+};
+
 const SAbout = styled.div`
   display: flex;
   justify-content: space-between;
   margin: 0 auto;
   position: relative;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 `;
 
 const SAboutTextBox = styled.div`
@@ -51,9 +59,22 @@ const SAboutTextBox = styled.div`
   position: relative;
 `;
 
-const SAboutTitle = styled.span`
+const SAboutTitle = styled.h3<StyleProps>`
   font-size: 24px;
-  font-weight: 500;
+  font-weight: 400;
+  transition: all 1s ease;
+  transition-delay: 0.2s;
+  transform: ${(props) => (props.inView ? "translateX(0)" : "translate(50px)")};
+  opacity: ${(props) => (props.inView ? 1 : 0)};
+`;
+
+const SAboutSpan = styled.span<StyleProps>`
+  display: inline-block;
+  transition: all 1.1s ease;
+  transition-delay: 0.2s;
+  transform: ${(props) =>
+    props.inView ? "translateX(0px)" : "translate(70px)"};
+  opacity: ${(props) => (props.inView ? 1 : 0)};
 `;
 
 const SAboutText = styled.p`
@@ -66,10 +87,13 @@ const SAboutText = styled.p`
   transform: translate(-30%, -50%);
 `;
 
-const SAboutImageBox = styled.div`
+const SAboutImageBox = styled.div<StyleProps>`
   width: 50%;
   height: 80vh;
   overflow: hidden;
+  transition: all 1s ease;
+  transform: ${(props) => (props.inView ? "scale(1)" : "scale(0.98)")};
+  opacity: ${(props) => (props.inView ? 1 : 0)};
 `;
 
 const KFAboutImage = keyframes`

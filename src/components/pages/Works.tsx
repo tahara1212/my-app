@@ -29,7 +29,7 @@ export const Works: VFC = memo(() => {
     <Container id="Works">
       <SWorks ref={ref}>
         {WorksData.map((works, index) => (
-          <SFigure>
+          <SFigure inView={inView} delay={index / 5}>
             <SImg src={images[index]} alt={works.alt} />
             <Sfigcaption>
               <SH2>{works.heading}</SH2>
@@ -46,13 +46,22 @@ export const Works: VFC = memo(() => {
   );
 });
 
-const SFigure = styled.figure`
+type StyleProps = {
+  inView: boolean;
+  delay: number;
+};
+
+const SFigure = styled.figure<StyleProps>`
   position: relative;
   width: 35%;
   height: 40%;
   cursor: pointer;
   text-align: center;
   overflow: hidden;
+  transition: all 1s ease;
+  transition-delay: ${(props) => props.delay}s;
+  transform: ${(props) => (props.inView ? "translateY(0)" : "translateY(5vh)")};
+  opacity: ${(props) => (props.inView ? 1 : 0)};
 
   &::before {
     content: "";
@@ -78,7 +87,7 @@ const SFigure = styled.figure`
     }
     & figcaption {
       /* background-color: rgba(96, 74, 185, 0.6); */
-      background-color: rgba(135, 206, 235, 0.9);
+      background-color: rgba(70, 130, 180, 0.7);
     }
 
     & h2 {
@@ -106,7 +115,7 @@ const Sfigcaption = styled.figcaption`
   width: 100%;
   height: 100%;
   /* background-color: rgba(62, 53, 97, 0.2); */
-  background-color: rgba(135, 206, 235, 0.3);
+  background-color: rgba(70, 130, 180, 0.3);
   backface-visibility: hidden;
   transition: background-color 0.55s;
   color: #fff;
