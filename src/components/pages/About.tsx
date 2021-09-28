@@ -63,7 +63,7 @@ const SAboutTitle = styled.h3<StyleProps>`
   font-size: 24px;
   font-weight: 400;
   transition: all 1s ease;
-  transition-delay: 0.2s;
+  /* transition-delay: 0.2s; */
   transform: ${(props) => (props.inView ? "translateX(0)" : "translate(50px)")};
   opacity: ${(props) => (props.inView ? 1 : 0)};
 `;
@@ -71,7 +71,7 @@ const SAboutTitle = styled.h3<StyleProps>`
 const SAboutSpan = styled.span<StyleProps>`
   display: inline-block;
   transition: all 1.1s ease;
-  transition-delay: 0.2s;
+  /* transition-delay: 0.2s; */
   transform: ${(props) =>
     props.inView ? "translateX(0px)" : "translate(70px)"};
   opacity: ${(props) => (props.inView ? 1 : 0)};

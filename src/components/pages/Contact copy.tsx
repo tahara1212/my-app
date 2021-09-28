@@ -1,57 +1,45 @@
 import { useState, memo, useEffect, useContext, VFC } from "react";
 import styled from "styled-components";
 import { useInView } from "react-intersection-observer";
+import { TextField, Button } from "@material-ui/core";
+import { useForm, Controller } from "react-hook-form";
 import Tooltip from "@material-ui/core/Tooltip";
-import { init, send } from "emailjs-com";
-import { Alert, Snackbar, TextField, Button } from "@mui/material";
 
 import variable from "../../css/variables.json";
 import { TitleTextContext } from "../../App";
 import { Container } from "../templates/Container";
-import cbg from "../../images/contact.jpeg";
+import cbg from "../../images/kbg.jpeg";
+
+import { init, send } from "emailjs-com";
 
 export const Contact: VFC = memo(() => {
   const { setTitle } = useContext(TitleTextContext);
 
   const [contactName, setContactName] = useState<string>("");
   const [contactMail, setContactMail] = useState<string>("");
-  const [contactMessage, setContactMessage] = useState<string>("");
-  const [error, setError] = useState<boolean>(true);
-  const [open, setOpen] = useState(false);
-  // スクロール検知
+  const [contactMessage, setContactMessage] = useState<string>(""); // 「お問い合わせ内容」の部分
+
   const { ref, inView } = useInView({
+    // オプション
     threshold: [0.5, 1.0],
   });
 
-  // セクションタイトル更新
+  const {
+    formState: { errors },
+    control,
+    handleSubmit,
+    register,
+  } = useForm();
+  const on_submit = (data: any) => console.log(data);
+
   useEffect(() => {
     if (inView) {
       setTitle("Contact");
     }
   }, [inView, setTitle]);
 
-  // スナックバーを閉じる
-  const handleClose = () => {
-    setOpen(false);
-  };
-
-  // 送信ボタン非活性
-  const disableSend =
-    contactName === "" || contactMail === "" || contactMessage === "";
-
-  // お問い合わせメール送信
-  const onSubmitSendMail = (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-    if (disableSend) {
-      setOpen(true);
-      setError(false);
-      return false;
-    }
-    const reg =
-      /^[A-Za-z0-9]{1}[A-Za-z0-9_.-]*@{1}[A-Za-z0-9_.-]{1,}.[A-Za-z0-9]{1,}$/;
-    if (!reg.test(contactMail)) {
-      setOpen(true);
-      setError(false);
+  const onClickSendMail = () => {
+    if (contactName === "" || contactMail === "") {
       return false;
     }
     const user_id = process.env.REACT_APP_USER_ID;
@@ -71,11 +59,10 @@ export const Contact: VFC = memo(() => {
         message: contactMessage,
       };
       send(service_id, template_id, templateParams).then(() => {
+        window.alert("お問い合わせを送信致しました!。");
         setContactName("");
         setContactMail("");
         setContactMessage("");
-        setError(true);
-        setOpen(true);
       });
     }
   };
@@ -86,67 +73,66 @@ export const Contact: VFC = memo(() => {
         <SContactImageBox inView={inView}></SContactImageBox>
         <SContactFormBox>
           <SContactInputArea>
-            <form onSubmit={onSubmitSendMail}>
-              <STextField
-                id="standard-basic"
-                label="Name"
-                value={contactName}
-                variant="standard"
-                onChange={(e) => setContactName(e.target.value)}
+            <form onSubmit={handleSubmit(on_submit)}>
+              <Controller
+                control={control}
+                {...register("name", { required: true })}
+                render={({ field }) => (
+                  <STextField
+                    id="standard-basic"
+                    label="Name"
+                    {...field}
+                    value={contactName}
+                    onChange={(e) => setContactName(e.target.value)}
+                  />
+                )}
               />
-              <STextField
-                id="standard-basic"
-                label="Email"
-                value={contactMail}
-                variant="standard"
-                onChange={(e) => setContactMail(e.target.value)}
+              {errors.name && <p>お名前を入力してください</p>}
+              <Controller
+                control={control}
+                {...register("email", { required: true })}
+                render={({ field }) => (
+                  <STextField
+                    id="standard-basic"
+                    label="Email"
+                    {...field}
+                    value={contactMail}
+                    onChange={(e) => setContactMail(e.target.value)}
+                  />
+                )}
               />
-              <Tooltip title="" placement="top-start" arrow>
-                <TextField
-                  label="Msessage"
-                  fullWidth
-                  margin="normal"
-                  rows={4}
-                  multiline
-                  variant="outlined"
-                  placeholder="Msessage"
-                  value={contactMessage}
-                  onChange={(e) => setContactMessage(e.target.value)}
-                />
-              </Tooltip>
+              {errors.email && <p>メールアドレスを入力してください</p>}
+              <Controller
+                control={control}
+                name="message"
+                render={({ field }) => (
+                  <Tooltip title="" placement="top-start" arrow>
+                    <TextField
+                      {...field}
+                      label="Msessage"
+                      fullWidth
+                      margin="normal"
+                      rows={4}
+                      multiline
+                      variant="outlined"
+                      placeholder="Msessage"
+                      value={contactMessage}
+                      onChange={(e) => setContactMessage(e.target.value)}
+                    />
+                  </Tooltip>
+                )}
+              />
               <SButton
-                variant="outlined"
+                variant="contained"
                 type="submit"
                 fullWidth={true}
-                disabled={disableSend}
+                onClick={onClickSendMail}
               >
                 Submit
               </SButton>
             </form>
           </SContactInputArea>
         </SContactFormBox>
-        <Snackbar
-          anchorOrigin={{ vertical: "bottom", horizontal: "center" }}
-          open={open}
-          autoHideDuration={6000}
-          onClose={handleClose}
-        >
-          {error ? (
-            <Alert onClose={handleClose} severity="success">
-              メールの送信が完了しました。
-            </Alert>
-          ) : (
-            <Alert
-              onClose={handleClose}
-              severity="error"
-              style={{
-                backgroundColor: "orange",
-              }}
-            >
-              メールの送信が失敗しました。
-            </Alert>
-          )}
-        </Snackbar>
       </SContact>
     </Container>
   );
@@ -157,7 +143,6 @@ type StyleProps = {
 };
 
 const SButton = styled(Button)`
-  margin-top: 1vh !important;
   background-color: ${variable.subColor} !important;
 `;
 
@@ -188,14 +173,13 @@ const SContactImageBox = styled.div<StyleProps>`
     height: 100%;
     background-color: ${variable.maskColor};
     position: absolute;
-    opacity: 0.5;
+    opacity: 0.3;
   }
 `;
 
 const SContactFormBox = styled.div`
   width: 50%;
   position: relative;
-  margin: 0 auto;
 `;
 
 const SContactInputArea = styled.div`
@@ -210,5 +194,4 @@ const SContactInputArea = styled.div`
 const STextField = styled(TextField)`
   /* color: black; */
   width: 100%;
-  margin-bottom: 1vh !important;
 `;
