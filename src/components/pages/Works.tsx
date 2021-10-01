@@ -31,14 +31,16 @@ export const Works: VFC = memo(() => {
         {WorksData.map((works, index) => (
           <SFigure inView={inView} delay={index / 5}>
             <SImg src={images[index]} alt={works.alt} />
-            <Sfigcaption>
-              <SH2>{works.heading}</SH2>
-              <SP>
-                {works.text}
-                <br />
-                {works.lowerText}
-              </SP>
-            </Sfigcaption>
+            <a href={works.link} target="_blank" rel="noreferrer">
+              <Sfigcaption>
+                <SH2>{works.heading}</SH2>
+                <SP>
+                  {works.text}
+                  <br />
+                  {works.lowerText}
+                </SP>
+              </Sfigcaption>
+            </a>
           </SFigure>
         ))}
       </SWorks>
@@ -75,6 +77,7 @@ const SFigure = styled.figure<StyleProps>`
     transform: scale(0);
     transition: opacity 0.55s, transform 0.55s;
     z-index: 1;
+    pointer-events: none;
   }
 
   &:hover {
@@ -99,6 +102,15 @@ const SFigure = styled.figure<StyleProps>`
       transform: translate(-50%, -10%) scale(1);
     }
   }
+`;
+
+const SWorks = styled.div`
+  height: 100%;
+  display: flex;
+  justify-content: space-between;
+  margin: 0 auto;
+  flex-wrap: wrap;
+  align-items: center;
 `;
 
 const SImg = styled.img`
@@ -139,13 +151,4 @@ const SP = styled.p`
   transform: translate(-50%, -50%) scale(0);
   transition: transform 0.55s, opacity 0.8s;
   font-family: "KleeOne", serif;
-`;
-
-const SWorks = styled.div`
-  height: 100%;
-  display: flex;
-  justify-content: space-between;
-  margin: 0 auto;
-  flex-wrap: wrap;
-  align-items: center;
 `;
