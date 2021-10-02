@@ -4,8 +4,8 @@ import styled from "styled-components";
 
 import works01 from "../../images/works01.jpg";
 import works02 from "../../images/works02.png";
-import works03 from "../../images/works03.jpeg";
-import works04 from "../../images/works04.jpeg";
+import works03 from "../../images/works03.png";
+import works04 from "../../images/works04.png";
 import { useInView } from "react-intersection-observer";
 import { TitleTextContext } from "../../App";
 import { Container } from "../templates/Container";
