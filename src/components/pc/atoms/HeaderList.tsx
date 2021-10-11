@@ -2,7 +2,7 @@ import { memo, useContext, VFC } from "react";
 import styled, { keyframes } from "styled-components";
 import { Link } from "react-scroll";
 
-import { TitleTextContext } from "../../App";
+import { TitleTextContext } from "../../../App";
 // import variable from "../../css/variables.json";
 
 type Props = {

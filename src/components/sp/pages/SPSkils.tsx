@@ -10,12 +10,12 @@ import {
 import "@devexpress/dx-react-chart-bootstrap4/dist/dx-react-chart-bootstrap4.css";
 import { Animation } from "@devexpress/dx-react-chart";
 
-import variable from "../../css/variables.json";
-import { TitleTextContext } from "../../App";
-import { Container } from "../templates/Container";
-import { SkilsData } from "../../data/SkilsData";
+import variable from "../../../css/variables.json";
+import { TitleTextContext } from "../../../App";
+import { Container } from "../../templates/Container";
+import { SkilsData } from "../../../data/SkilsData";
 
-export const Skils: VFC = memo(() => {
+export const SPSkils: VFC = memo(() => {
   const { setTitle } = useContext(TitleTextContext);
 
   const { ref, inView } = useInView({
@@ -37,7 +37,7 @@ export const Skils: VFC = memo(() => {
             <ArgumentAxis />
             <ValueAxis showLabels={false} />
             <BarSeries
-              valueField="level"
+              valueField="area"
               argumentField="skil"
               color={variable.subColor}
               barWidth={0.5}

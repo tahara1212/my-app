@@ -2,14 +2,14 @@ import { memo, VFC } from "react";
 import { useContext, useEffect } from "react";
 import styled, { keyframes } from "styled-components";
 
-import bg from "../../images/bg.jpeg";
-import variable from "../../css/variables.json";
+import bg from "../../../images/bg.jpeg";
+import variable from "../../../css/variables.json";
 import { useInView } from "react-intersection-observer";
-import { TitleTextContext } from "../../App";
+import { TitleTextContext } from "../../../App";
 
 // const imgPath = "/images/bg.jpeg";
 
-export const Main: VFC = memo(() => {
+export const SPMain: VFC = memo(() => {
   // const img = new Image();
   // img.src = bg; // プリロードする
   // console.log(img.src);
@@ -42,7 +42,7 @@ export const Main: VFC = memo(() => {
 
 const SContainer = styled.div`
   width: 100%;
-  height: auto;
+  height: 90vh;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -68,8 +68,8 @@ const KFMain = keyframes`
 `;
 
 const SMain = styled.div`
-  width: calc(100% - 80px);
-  height: calc(95vh - 90px);
+  width: calc(100% - 50px);
+  height: calc(95vh - 40px);
   overflow: hidden;
   animation-name: ${KFMain};
   animation-duration: 0.8s;
@@ -84,7 +84,7 @@ const KFMainBg = keyframes`
 
 const SMainBg = styled.div`
   width: calc(100%);
-  height: calc(95vh - 90px);
+  height: calc(95vh - 40px);
   margin: 0 auto;
   background-image: url(${bg});
   background-position: center;
@@ -99,6 +99,7 @@ const SMainBg = styled.div`
   &::before {
     content: "";
     background-color: ${variable.maskColor};
+    /* background-color: red; */
     width: 100%;
     height: 100%;
     position: absolute;

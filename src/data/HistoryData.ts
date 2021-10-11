@@ -44,7 +44,7 @@ export const HistoryData: History[] = [
   {
     yearMonth: "2020年03月",
     text: "WEB系受託チームに配属",
-    lowerText: "複数の運用・保守や請負案件を担当する。",
+    lowerText: "複数の運用・保守や請負案件を担当する。PM業務も担当",
   },
   {
     yearMonth: "2020年04月",
@@ -83,6 +83,11 @@ export const HistoryData: History[] = [
     yearMonth: "2021年05月",
     text: "TypeScriptでユーザー管理画面を作成",
     lowerText: "オンライン学習教材を参考にフロントサイドのみを実装。",
+  },
+  {
+    yearMonth: "2021年09月",
+    text: "Gatsby.jsでブログを立ち上げる",
+    lowerText: "React.js+Gatsby.jsでブログサイトを作成。",
   },
   {
     yearMonth: "2021年09月",

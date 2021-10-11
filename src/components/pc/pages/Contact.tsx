@@ -5,10 +5,10 @@ import Tooltip from "@material-ui/core/Tooltip";
 import { init, send } from "emailjs-com";
 import { Alert, Snackbar, TextField, Button } from "@mui/material";
 
-import variable from "../../css/variables.json";
-import { TitleTextContext } from "../../App";
-import { Container } from "../templates/Container";
-import cbg from "../../images/contact.jpeg";
+import variable from "../../../css/variables.json";
+import { TitleTextContext } from "../../../App";
+import { Container } from "../../templates/Container";
+import cbg from "../../../images/contact.jpeg";
 
 export const Contact: VFC = memo(() => {
   const { setTitle } = useContext(TitleTextContext);

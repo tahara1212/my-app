@@ -2,12 +2,13 @@ import { memo, VFC, useContext, useEffect } from "react";
 import styled, { keyframes } from "styled-components";
 import { useInView } from "react-intersection-observer";
 
-import variable from "../../css/variables.json";
-import { TitleTextContext } from "../../App";
-import about from "../../images/about.jpeg";
-import { Container } from "../templates/Container";
+import variable from "../../../css/variables.json";
+import { TitleTextContext } from "../../../App";
+import about from "../../../images/about.jpeg";
+// import { Container } from "../../templates/Container";
+import { SPContainer } from "../../templates/SPContainer";
 
-export const About: VFC = memo(() => {
+export const SPAbout: VFC = memo(() => {
   const { setTitle } = useContext(TitleTextContext);
 
   const { ref, inView } = useInView({
@@ -22,12 +23,12 @@ export const About: VFC = memo(() => {
   }, [inView, setTitle]);
 
   return (
-    <Container id="About">
+    <SPContainer id="About">
       <SAbout ref={ref}>
         <SAboutImageBox inView={inView}>
           <SAboutImage></SAboutImage>
         </SAboutImageBox>
-        <SAboutTextBox>
+        <SAboutTextBox ref={ref}>
           <SAboutText>
             <SAboutTitle inView={inView}>
               田原 隼併 / Shunpei Tahara
@@ -36,7 +37,7 @@ export const About: VFC = memo(() => {
           </SAboutText>
         </SAboutTextBox>
       </SAbout>
-    </Container>
+    </SPContainer>
   );
 });
 
@@ -45,25 +46,29 @@ type StyleProps = {
 };
 
 const SAbout = styled.div`
-  display: flex;
-  justify-content: space-between;
+  /* display: flex; */
+  /* justify-content: space-between; */
   margin: 0 auto;
   position: relative;
-  top: 50%;
+  /* top: 50%;
   left: 50%;
-  transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%); */
 `;
 
 const SAboutTextBox = styled.div`
-  width: 50%;
+  /* width: 50%; */
   position: relative;
+  width: 100%;
+  height: 40vh;
+  background-color: lightblue;
+  /* text-align: center; */
 `;
 
 const SAboutTitle = styled.h3<StyleProps>`
-  font-size: 24px;
+  font-size: 20px;
   font-weight: 400;
   transition: all 1s ease;
-  /* transition-delay: 0.2s; */
+  transition-delay: 0.2s;
   transform: ${(props) => (props.inView ? "translateX(0)" : "translate(50px)")};
   opacity: ${(props) => (props.inView ? 1 : 0)};
 `;
@@ -71,25 +76,26 @@ const SAboutTitle = styled.h3<StyleProps>`
 const SAboutSpan = styled.span<StyleProps>`
   display: inline-block;
   transition: all 1.1s ease;
-  /* transition-delay: 0.2s; */
+  transition-delay: 0.2s;
   transform: ${(props) =>
     props.inView ? "translateX(0px)" : "translate(70px)"};
   opacity: ${(props) => (props.inView ? 1 : 0)};
 `;
 
 const SAboutText = styled.p`
-  font-size: 18px;
+  font-size: 16px;
   overflow-wrap: break-word;
-  width: 60%;
+  width: 90%;
+  text-align: center;
   position: absolute;
   top: 50%;
   left: 50%;
-  transform: translate(-30%, -50%);
+  transform: translate(-50%, -50%);
 `;
 
 const SAboutImageBox = styled.div<StyleProps>`
-  width: 50%;
-  height: 80vh;
+  /* width: 50%; */
+  height: 40vh;
   overflow: hidden;
   transition: all 1s ease;
   transform: ${(props) => (props.inView ? "scale(1)" : "scale(0.98)")};
@@ -106,13 +112,13 @@ const KFAboutImage = keyframes`
 `;
 
 const SAboutImage = styled.div`
-  height: 80vh;
+  height: 60vh;
   opacity: 0.8;
   background-image: url(${about});
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
-  border-radius: 5px;
+  /* border-radius: 5px; */
   position: relative;
   /* animation: ${KFAboutImage} 13s infinite; */
   &::before {

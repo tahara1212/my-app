@@ -5,22 +5,27 @@ import {
   useState,
   useEffect,
 } from "react";
-import styled from "styled-components";
-import { Divider } from "./components/atoms/Divider";
-import { Loader } from "./components/atoms/Loader";
-import { MainMask } from "./components/atoms/MainMask";
+// import styled from "styled-components";
+// import { Divider } from "./components/atoms/Divider";
+import { Loader } from "./components/pc/atoms/Loader";
+import { MainMask } from "./components/pc/atoms/MainMask";
 
-import { Title } from "./components/molecules/Title";
-import { Footer } from "./components/organisms/Footer";
-import { Header } from "./components/organisms/Header";
-import { About } from "./components/pages/About";
-import { Contact } from "./components/pages/Contact";
-import { History } from "./components/pages/History";
-import { Main } from "./components/pages/Main";
-import { Skils } from "./components/pages/Skils";
-import { Works } from "./components/pages/Works";
+// import { Title } from "./components/molecules/Title";
+// import { Footer } from "./components/organisms/Footer";
+// import { Header } from "./components/organisms/Header";
+// import { About } from "./components/pages/About";
+// import { Contact } from "./components/pages/Contact";
+// import { History } from "./components/pages/History";
+// import { Main } from "./components/pages/Main";
+// import { Skils } from "./components/pages/Skils";
+// import { Works } from "./components/pages/Works";
+import { PCContents } from "./components/templates/PCContents";
 
 import bg from "./images/bg.jpeg";
+
+// import MediaQuery from "react-responsive";
+import useMedia from "use-media";
+import { SPContents } from "./components/templates/SPContents";
 
 export type TitleContextType = {
   title: string;
@@ -30,6 +35,8 @@ export type TitleContextType = {
 export const TitleTextContext = createContext({} as TitleContextType);
 
 function App() {
+  const isWide = useMedia({ minWidth: "1000px" });
+
   const [title, setTitle] = useState<string>("Welcome");
   const [loading, setLoading] = useState<Boolean>(true);
   const value: TitleContextType = {
@@ -43,7 +50,7 @@ function App() {
   useEffect(() => {
     setInterval(() => {
       setLoading(false);
-    }, 2700);
+    }, 200); // 2700
   }, [setLoading]);
 
   return (
@@ -53,32 +60,17 @@ function App() {
       ) : (
         <>
           <MainMask />
-          <Header />
-          <SMainContent>
-            <Title title={title} />
-            <Main />
-            <Divider />
-            <About />
-            <Divider />
-            <History />
-            <Divider />
-            <Works />
-            <Divider />
-            <Skils />
-            <Divider />
-            <Contact />
-          </SMainContent>
-          <Footer />
+          {isWide ? <PCContents title={title} /> : <SPContents title={title} />}
         </>
       )}
     </TitleTextContext.Provider>
   );
 }
 
-const SMainContent = styled.div`
-  width: 100%;
-  padding-top: 80px;
-  margin: 0 auto;
-`;
+// const SMainContent = styled.div`
+//   width: 100%;
+//   padding-top: 80px;
+//   margin: 0 auto;
+// `;
 
 export default App;

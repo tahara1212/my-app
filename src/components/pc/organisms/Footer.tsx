@@ -5,7 +5,7 @@ import { faTwitter } from "@fortawesome/free-brands-svg-icons";
 import { faGithub } from "@fortawesome/free-brands-svg-icons";
 import { faFacebook } from "@fortawesome/free-brands-svg-icons";
 
-import variable from "../../css/variables.json";
+import variable from "../../../css/variables.json";
 
 export const Footer = memo(() => {
   return (
@@ -53,6 +53,9 @@ const SFooter = styled.footer`
 const SContactIconArea = styled.div`
   display: flex;
   justify-content: center;
+  & small {
+    font-family: "Besley", serif;
+  }
 `;
 
 const SFontAwesomeIcon = styled(FontAwesomeIcon)`

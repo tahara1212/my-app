@@ -1,13 +1,13 @@
 import { memo, VFC } from "react";
 import { useContext, useEffect } from "react";
 import styled, { keyframes } from "styled-components";
-import history from "../../images/history.jpeg";
 import { useInView } from "react-intersection-observer";
 
-import variable from "../../css/variables.json";
-import { TitleTextContext } from "../../App";
+import history from "../../../images/history.jpeg";
+import variable from "../../../css/variables.json";
+import { TitleTextContext } from "../../../App";
 import { HistoryText } from "../molecules/HistoryText";
-import { Container } from "../templates/Container";
+import { Container } from "../../templates/Container";
 
 export const History: VFC = memo(() => {
   const { setTitle } = useContext(TitleTextContext);

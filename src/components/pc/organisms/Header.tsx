@@ -2,7 +2,7 @@ import { memo, VFC } from "react";
 import styled from "styled-components";
 import { Link } from "react-scroll";
 
-import variable from "../../css/variables.json";
+import variable from "../../../css/variables.json";
 import { HeaderList } from "../atoms/HeaderList";
 import { Time } from "../atoms/Time";
 
@@ -46,8 +46,9 @@ const SLogo = styled.div`
   left: 0;
   margin-bottom: 0;
   justify-content: flex-start;
-  margin-right: 10px;
+  /* margin-right: 10px; */
   padding: 0;
+  width: 57px;
   height: 100%;
   cursor: pointer;
   opacity: 0.8;

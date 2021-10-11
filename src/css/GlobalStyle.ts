@@ -16,7 +16,7 @@ export const GlobalStyle = createGlobalStyle`
     *, *:before, *:after {
         margin: 0;
         padding: 0;
-        font-family: "Besley", serif;
+        font-family: serif;
         box-sizing: border-box;
     }
   }

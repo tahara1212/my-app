@@ -2,16 +2,18 @@ import { memo, VFC } from "react";
 import { useContext, useEffect } from "react";
 import styled from "styled-components";
 
-import works01 from "../../images/works01.jpg";
-import works02 from "../../images/works02.png";
-import works03 from "../../images/works03.png";
-import works04 from "../../images/works04.png";
+import works01 from "../../../images/works01.png";
+import works02 from "../../../images/works02.png";
+import works03 from "../../../images/works03.png";
+import works04 from "../../../images/works04.png";
 import { useInView } from "react-intersection-observer";
-import { TitleTextContext } from "../../App";
-import { Container } from "../templates/Container";
-import { WorksData } from "../../data/WorksData";
+import { TitleTextContext } from "../../../App";
+// import { Container } from "../../templates/Container";
+import { SPContainer } from "../../templates/SPContainer";
 
-export const Works: VFC = memo(() => {
+import { WorksData } from "../../../data/WorksData";
+
+export const SPWorks: VFC = memo(() => {
   const images = [works01, works02, works03, works04];
   const { setTitle } = useContext(TitleTextContext);
   const { ref, inView } = useInView({
@@ -26,7 +28,7 @@ export const Works: VFC = memo(() => {
   }, [inView, setTitle]);
 
   return (
-    <Container id="Works">
+    <SPContainer id="Works">
       <SWorks ref={ref}>
         {WorksData.map((works, index) => (
           <SFigure inView={inView} delay={index / 5}>
@@ -44,7 +46,7 @@ export const Works: VFC = memo(() => {
           </SFigure>
         ))}
       </SWorks>
-    </Container>
+    </SPContainer>
   );
 });
 
@@ -55,8 +57,10 @@ type StyleProps = {
 
 const SFigure = styled.figure<StyleProps>`
   position: relative;
-  width: 35%;
-  height: 40%;
+  width: 100%;
+  height: 20vh;
+  /* margin-bottom: 1vh; */
+  border: 1px solid white;
   cursor: pointer;
   text-align: center;
   overflow: hidden;
@@ -90,7 +94,7 @@ const SFigure = styled.figure<StyleProps>`
     }
     & figcaption {
       /* background-color: rgba(96, 74, 185, 0.6); */
-      background-color: rgba(70, 130, 180, 0.7);
+      background-color: rgba(70, 130, 180, 0.8);
     }
 
     & h2 {
@@ -106,11 +110,11 @@ const SFigure = styled.figure<StyleProps>`
 
 const SWorks = styled.div`
   height: 100%;
-  display: flex;
-  justify-content: space-between;
+  /* display: flex; */
+  /* justify-content: space-between; */
   margin: 0 auto;
-  flex-wrap: wrap;
-  align-items: center;
+  /* flex-wrap: wrap; */
+  /* align-items: center; */
 `;
 
 const SImg = styled.img`

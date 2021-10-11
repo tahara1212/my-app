@@ -10,9 +10,9 @@ import Typography from "@material-ui/core/Typography";
 import styled from "styled-components";
 import { useInView } from "react-intersection-observer";
 
-import { HistoryData } from "../../data/HistoryData";
+import { HistoryData } from "../../../data/HistoryData";
 
-export const HistoryText: VFC = memo(() => {
+export const SPHistoryText: VFC = memo(() => {
   const { ref, inView } = useInView({
     // オプション
     threshold: [0.5, 1.0],
@@ -20,7 +20,7 @@ export const HistoryText: VFC = memo(() => {
   });
 
   return (
-    <Timeline align="left" style={timeline} ref={ref}>
+    <Timeline align="left" ref={ref} style={timeline}>
       {HistoryData.map((history, index) => (
         <STimelineItem inView={inView} delay={index / 5}>
           <TimelineOppositeContent style={oppositeContent}>
@@ -51,16 +51,22 @@ type StyleProps = {
 };
 
 const STimelineItem = styled(TimelineItem)<StyleProps>`
-  opacity: 0;
+  /* opacity: 1;
   transition: all 1s ease;
   transition-delay: ${(props) => props.delay}s;
   transform: ${(props) =>
-    props.inView ? "translateX(0)" : "translateX(10px)"};
-  opacity: ${(props) => (props.inView ? 1 : 0)};
+    props.inView ? "translateY(0)" : "translateY(10px)"};
+  opacity: ${(props) => (props.inView ? 1 : 0)}; */
 `;
 
+// const STimeline = styled(Timeline)`
+//   width: "100%";
+//   flex-direction: "initial" !important;
+// `;
+
 const timeline = {
-  width: "80%",
+  // transform: "rotate(90deg)",
+  // flexDirection: "initial",
 };
 
 const oppositeContent = {
