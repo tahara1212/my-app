@@ -10,9 +10,9 @@ import { TitleTextContext } from "../../../App";
 // import { Container } from "../../templates/Container";
 import { SPContainer } from "../../templates/SPContainer";
 
-import cbg from "../../images/contact.jpeg";
+import cbg from "../../../images/contact.jpeg";
 
-export const Contact: VFC = memo(() => {
+export const SPContact: VFC = memo(() => {
   const { setTitle } = useContext(TitleTextContext);
 
   const [contactName, setContactName] = useState<string>("");
@@ -89,20 +89,22 @@ export const Contact: VFC = memo(() => {
         <SContactFormBox>
           <SContactInputArea>
             <form onSubmit={onSubmitSendMail}>
-              <STextField
-                id="standard-basic"
-                label="Name"
-                value={contactName}
-                variant="standard"
-                onChange={(e) => setContactName(e.target.value)}
-              />
-              <STextField
-                id="standard-basic"
-                label="Email"
-                value={contactMail}
-                variant="standard"
-                onChange={(e) => setContactMail(e.target.value)}
-              />
+              <SFlex>
+                <STextField
+                  id="standard-basic"
+                  label="Name"
+                  value={contactName}
+                  variant="standard"
+                  onChange={(e) => setContactName(e.target.value)}
+                />
+                <STextField
+                  id="standard-basic"
+                  label="Email"
+                  value={contactMail}
+                  variant="standard"
+                  onChange={(e) => setContactMail(e.target.value)}
+                />
+              </SFlex>
               <Tooltip title="" placement="top-start" arrow>
                 <TextField
                   label="Msessage"
@@ -166,15 +168,15 @@ const SButton = styled(Button)`
 const SContact = styled.div`
   width: 100%;
   height: 100%;
-  display: flex;
-  justify-content: space-between;
+  /* display: flex; */
+  /* justify-content: space-between; */
   margin: 0 auto;
   padding-top: 3vh;
 `;
 
 const SContactImageBox = styled.div<StyleProps>`
-  width: 50%;
-  height: 80vh;
+  width: 100%;
+  height: 40vh;
   position: relative;
   background-image: url(${cbg});
   background-position: center;
@@ -182,7 +184,8 @@ const SContactImageBox = styled.div<StyleProps>`
   background-size: cover;
   border-radius: 5px;
   transition: all 1s ease;
-  transform: ${(props) => (props.inView ? "scale(1)" : "scale(0.98)")};
+  transform: ${(props) =>
+    props.inView ? "scale(1) rotate(90deg)" : "scale(0.98) rotate(90deg)"};
   opacity: ${(props) => (props.inView ? 1 : 0)};
   &::before {
     content: "";
@@ -195,22 +198,29 @@ const SContactImageBox = styled.div<StyleProps>`
 `;
 
 const SContactFormBox = styled.div`
-  width: 50%;
+  width: 100%;
+  height: 40vh;
   position: relative;
   margin: 0 auto;
 `;
 
 const SContactInputArea = styled.div`
-  width: 60%;
+  width: 100%;
   text-align: center;
-  position: absolute;
+  /* position: absolute;
   top: 50%;
   left: 50%;
-  transform: translate(-30%, -50%);
+  transform: translate(-30%, -50%); */
+`;
+
+const SFlex = styled.div`
+  display: flex;
+  justify-content: space-between;
+  padding-top: 5vh;
 `;
 
 const STextField = styled(TextField)`
   /* color: black; */
-  width: 100%;
+  width: 48%;
   margin-bottom: 1vh !important;
 `;

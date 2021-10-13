@@ -7,7 +7,7 @@ import { faFacebook } from "@fortawesome/free-brands-svg-icons";
 
 import variable from "../../../css/variables.json";
 
-export const Footer = memo(() => {
+export const SPFooter = memo(() => {
   return (
     <SFooter>
       <SContactIconArea>
@@ -42,10 +42,10 @@ export const Footer = memo(() => {
 
 const SFooter = styled.footer`
   width: 100%;
-  height: 80px;
+  height: 60px;
   padding: 0 40px;
   text-align: center;
-  line-height: 80px;
+  line-height: 60px;
   /* background-color: lightgray; */
   background-color: ${variable.subColor};
 `;

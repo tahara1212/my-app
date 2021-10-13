@@ -2,18 +2,20 @@ import { VFC } from "react";
 import styled from "styled-components";
 import { Divider } from "../pc/atoms/Divider";
 
-import { Footer } from "../pc/organisms/Footer";
+// import { Footer } from "../pc/organisms/Footer";
 // import { Header } from "../pc/organisms/Header";
 // import { About } from "../pc/pages/About";
-import { Contact } from "../pc/pages/Contact";
+// import { Contact } from "../pc/pages/Contact";
 // import { History } from "../pc/pages/History";
 // import { Main } from "../pc/pages/Main";
 // import { Skils } from "../pc/pages/Skils";
 // import { Works } from "../pc/pages/Works";
 
 import { SPTitle } from "../sp/molecules/SPTitle";
+import { SPFooter } from "../sp/organisms/SPFooter";
 import { SPHeader } from "../sp/organisms/SPHeader";
 import { SPAbout } from "../sp/pages/SPAbout";
+import { SPContact } from "../sp/pages/SPContact";
 import { SPHistory } from "../sp/pages/SPHistory";
 import { SPMain } from "../sp/pages/SPMain";
 import { SPSkils } from "../sp/pages/SPSkils";
@@ -41,9 +43,9 @@ export const SPContents: VFC<Props> = (props) => {
         <Divider />
         <SPSkils />
         <Divider />
-        <Contact />
+        <SPContact />
       </SMainContent>
-      <Footer />
+      <SPFooter />
     </>
   );
 };
