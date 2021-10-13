@@ -28,14 +28,20 @@ export const SPHeader: VFC = memo(() => {
 const SHeader = styled.header`
   display: flex;
   justify-content: space-between;
-  width: 100%;
+  box-sizing: border-box;
+  /* width: 100%; */
   height: 60px;
-  line-height: 60px;
-  padding: 0 28px;
   font-size: 1.6rem;
+  line-height: 60px;
   pointer-events: auto;
   position: fixed;
-  background-color: ${variable.bgColor};
+  /* top: 0;
+  left: 0;
+  right: 0;
+  margin: 0 auto; */
+  /* padding: 0 20px; */
+  /* background-color: ${variable.bgColor}; */
+  background-color: red;
   z-index: 4;
 `;
 
@@ -46,7 +52,7 @@ const SMenuBtnArea = styled.div`
   height: 30px;
   cursor: pointer;
   top: 2.5vh;
-  right: 7vw;
+  /* right: 7vw; */
   margin: 0;
   z-index: 201;
   /* background-color: rgba(5, 5, 5, 0.5); */
@@ -80,7 +86,7 @@ const SLogo = styled.div`
   left: 0;
   margin-bottom: 0;
   justify-content: flex-start;
-  margin-right: 10px;
+  /* margin-right: 10px; */
   padding: 0;
   height: 100%;
   cursor: pointer;

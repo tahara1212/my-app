@@ -10,8 +10,8 @@ export const SPTitle: VFC<TitleProps> = memo((props) => {
 
   return (
     <>
-      <SVG width="180" height="180">
-        <SCircle cx="90" cy="90" r="85" fill-opacity="0" />
+      <SVG width="140" height="140">
+        <SCircle cx="70" cy="70" r="65" fill-opacity="0" />
       </SVG>
       <SMainText>{title}</SMainText>
     </>
@@ -52,7 +52,7 @@ const SMainText = styled.p`
   left: 50%;
   background-color: transparent;
   transform: translate(-50%, -50%);
-  font-size: 78px;
+  font-size: 58px;
   font-family: "Allison", serif;
   opacity: 0;
   animation: ${KFMainText} 0.5s ease-out;

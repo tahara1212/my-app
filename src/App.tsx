@@ -5,7 +5,7 @@ import {
   useState,
   useEffect,
 } from "react";
-// import styled from "styled-components";
+import styled from "styled-components";
 // import { Divider } from "./components/atoms/Divider";
 import { Loader } from "./components/pc/atoms/Loader";
 import { MainMask } from "./components/pc/atoms/MainMask";
@@ -58,19 +58,19 @@ function App() {
       {loading ? (
         <Loader />
       ) : (
-        <>
+        <SContent>
           <MainMask />
           {isWide ? <PCContents title={title} /> : <SPContents title={title} />}
-        </>
+        </SContent>
       )}
     </TitleTextContext.Provider>
   );
 }
 
-// const SMainContent = styled.div`
-//   width: 100%;
-//   padding-top: 80px;
-//   margin: 0 auto;
-// `;
+const SContent = styled.div`
+  width: 100%;
+  /* padding-top: 80px; */
+  margin: 0 auto;
+`;
 
 export default App;
