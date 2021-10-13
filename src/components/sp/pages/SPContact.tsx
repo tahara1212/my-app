@@ -184,8 +184,7 @@ const SContactImageBox = styled.div<StyleProps>`
   background-size: cover;
   border-radius: 5px;
   transition: all 1s ease;
-  transform: ${(props) =>
-    props.inView ? "scale(1) rotate(90deg)" : "scale(0.98) rotate(90deg)"};
+  transform: ${(props) => (props.inView ? "scale(1)" : "scale(0.98)")};
   opacity: ${(props) => (props.inView ? 1 : 0)};
   &::before {
     content: "";
