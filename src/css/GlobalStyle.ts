@@ -13,6 +13,7 @@ export const GlobalStyle = createGlobalStyle`
     font-size: ${variable.textSize};
     color: ${variable.textColor};
     width: 100%;
+    scrollbar-width: 0px;
     *, *:before, *:after {
         margin: 0;
         padding: 0;

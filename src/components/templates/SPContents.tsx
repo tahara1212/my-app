@@ -28,6 +28,7 @@ export const SPContents: VFC<Props> = (props) => {
 
   return (
     <>
+      <SPHeader />
       <SMainContent>
         <SPTitle title={title} />
         <SPMain />
@@ -41,8 +42,8 @@ export const SPContents: VFC<Props> = (props) => {
         <SPSkils />
         <Divider />
         <Contact />
-        <Footer />
       </SMainContent>
+      <Footer />
     </>
   );
 };
@@ -51,5 +52,5 @@ const SMainContent = styled.div`
   width: 100%;
   padding-top: 60px;
   margin: 0 auto;
-  background-color: skyblue;
+  /* background-color: skyblue; */
 `;

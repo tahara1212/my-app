@@ -69,6 +69,7 @@ function App() {
 
 const SContent = styled.div`
   width: 100%;
+  overflow: hidden;
   /* padding-top: 80px; */
   margin: 0 auto;
 `;

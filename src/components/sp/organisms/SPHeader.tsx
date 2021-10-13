@@ -29,31 +29,30 @@ const SHeader = styled.header`
   display: flex;
   justify-content: space-between;
   box-sizing: border-box;
-  /* width: 100%; */
+  width: 100%;
   height: 60px;
   font-size: 1.6rem;
   line-height: 60px;
   pointer-events: auto;
   position: fixed;
-  /* top: 0;
+  top: 0;
   left: 0;
   right: 0;
-  margin: 0 auto; */
-  /* padding: 0 20px; */
-  /* background-color: ${variable.bgColor}; */
-  background-color: red;
+  margin: 0 auto;
+  padding: 0 30px;
+  background-color: ${variable.bgColor};
+  /* background-color: red; */
   z-index: 4;
 `;
 
 const SMenuBtnArea = styled.div`
   position: absolute;
-  /* right: 15px; */
   width: 30px;
   height: 30px;
   cursor: pointer;
   top: 2.5vh;
-  /* right: 7vw; */
-  margin: 0;
+  right: 25px;
+  /* margin: 0; */
   z-index: 201;
   /* background-color: rgba(5, 5, 5, 0.5); */
 `;
