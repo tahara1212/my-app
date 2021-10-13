@@ -50,7 +50,7 @@ export const SPContents: VFC<Props> = (props) => {
 
 const SMainContent = styled.div`
   width: 100%;
-  padding-top: 40px;
+  padding-top: 20px;
   margin: 0 auto;
   /* background-color: skyblue; */
 `;

@@ -9,23 +9,30 @@ export const SPTitle: VFC<TitleProps> = memo((props) => {
   const { title } = props;
 
   return (
-    <>
+    <STitle>
       <SVG width="140" height="140">
         <SCircle cx="70" cy="70" r="65" fill-opacity="0" />
       </SVG>
       <SMainText>{title}</SMainText>
-    </>
+    </STitle>
   );
 });
 
-const SVG = styled.svg`
+const STitle = styled.div`
   position: fixed;
+  top: 50vh;
+  left: 50%;
+  z-index: 6;
+`;
+
+const SVG = styled.svg`
+  /* position: fixed; */
   background-color: rgba(244, 244, 244, 0.4);
   border-radius: 50%;
-  top: 50%;
-  left: 50%;
+  /* top: 50%; */
+  /* left: 50%; */
   transform: translate(-50%, -50%) rotate(-90deg);
-  z-index: 6;
+  /* z-index: 6; */
 `;
 
 const KFCircle = keyframes`
@@ -46,10 +53,13 @@ const KFMainText = keyframes`
 `;
 
 const SMainText = styled.p`
-  z-index: 6;
-  position: fixed;
-  top: 50%;
-  left: 50%;
+  /* z-index: 6; */
+  /* position: fixed; */
+  /* top: 50%; */
+  /* left: 50%; */
+  position: absolute;
+  top: 0;
+  left: 0;
   background-color: transparent;
   transform: translate(-50%, -50%);
   font-size: 58px;
