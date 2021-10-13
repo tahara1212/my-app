@@ -60,7 +60,7 @@ const SFigure = styled.figure<StyleProps>`
   width: 100%;
   height: 20vh;
   /* margin-bottom: 1vh; */
-  border: 1px solid white;
+  border: 3px solid white;
   cursor: pointer;
   text-align: center;
   overflow: hidden;
@@ -135,6 +135,7 @@ const Sfigcaption = styled.figcaption`
   backface-visibility: hidden;
   transition: background-color 0.55s;
   color: #fff;
+  font-size: 11px;
 `;
 
 const SH2 = styled.h2`
