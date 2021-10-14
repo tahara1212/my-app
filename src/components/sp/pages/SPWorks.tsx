@@ -70,7 +70,6 @@ const SFigure = styled.figure<StyleProps>`
   width: 100%;
   height: 20vh;
   /* margin-bottom: 1vh; */
-  border: 3px solid white;
   cursor: pointer;
   text-align: center;
   overflow: hidden;
