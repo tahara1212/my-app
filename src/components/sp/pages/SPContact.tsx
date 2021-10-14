@@ -170,7 +170,8 @@ const SContact = styled.div`
   /* display: flex; */
   /* justify-content: space-between; */
   margin: 0 auto;
-  padding-top: 3vh;
+  /* padding-top: 3vh; */
+  background-color: brown;
 `;
 
 // const SContactImageBox = styled.div<StyleProps>`
@@ -197,9 +198,10 @@ const SContact = styled.div`
 
 const SContactFormBox = styled.div`
   width: 100%;
-  height: 80vh;
-  position: relative;
+  height: 40vh;
+  position: absolute;
   margin: 0 auto;
+  bottom: 0;
 `;
 
 const SContactInputArea = styled.div`

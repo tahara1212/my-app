@@ -60,7 +60,7 @@ const SAboutTextBox = styled.div`
   position: relative;
   width: 100%;
   height: 40vh;
-  background-color: lightblue;
+  /* background-color: lightblue; */
   /* text-align: center; */
 `;
 

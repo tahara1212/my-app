@@ -13,8 +13,9 @@ import {
 
 // import variable from "../../../css/variables.json";
 import { TitleTextContext } from "../../../App";
-import { Container } from "../../templates/Container";
+// import { Container } from "../../templates/Container";
 // import { SkilsData } from "../../../data/SkilsData";
+import { SPContainer } from "../../templates/SPContainer";
 
 //表示させたいデータ群
 const dataRadar = [
@@ -40,7 +41,7 @@ export const SPSkils: VFC = memo(() => {
   }, [inView, setTitle]);
 
   return (
-    <Container id="Skils">
+    <SPContainer id="Skils">
       <SSkils ref={ref}>
         {inView && (
           <ResponsiveContainer>
@@ -67,7 +68,7 @@ export const SPSkils: VFC = memo(() => {
           </ResponsiveContainer>
         )}
       </SSkils>
-    </Container>
+    </SPContainer>
   );
 });
 
@@ -77,7 +78,7 @@ const SSkils = styled.div`
   position: absolute;
   top: 50%;
   left: 50%;
-  transform: translate(-50%, -35%);
+  transform: translate(-50%, -56%);
   font-size: 1.8vw;
-  overflow-wrap: break-word;
+  background-color: blue;
 `;

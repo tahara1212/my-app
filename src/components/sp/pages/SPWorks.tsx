@@ -55,6 +55,18 @@ type StyleProps = {
   delay: number;
 };
 
+const SWorks = styled.div`
+  width: 100%;
+  height: 100%;
+  /* display: flex; */
+  /* justify-content: space-between; */
+  /* margin: 0 auto; */
+  /* flex-wrap: wrap; */
+  /* align-items: center; */
+  margin-bottom: 19vh;
+  background-color: cadetblue;
+`;
+
 const SFigure = styled.figure<StyleProps>`
   position: relative;
   width: 100%;
@@ -68,6 +80,7 @@ const SFigure = styled.figure<StyleProps>`
   transition-delay: ${(props) => props.delay}s;
   transform: ${(props) => (props.inView ? "translateY(0)" : "translateY(5vh)")};
   opacity: ${(props) => (props.inView ? 1 : 0)};
+  margin-bottom: 1vh;
 
   &::before {
     content: "";
@@ -106,15 +119,6 @@ const SFigure = styled.figure<StyleProps>`
       transform: translate(-50%, -10%) scale(1);
     }
   }
-`;
-
-const SWorks = styled.div`
-  height: 100%;
-  /* display: flex; */
-  /* justify-content: space-between; */
-  margin: 0 auto;
-  /* flex-wrap: wrap; */
-  /* align-items: center; */
 `;
 
 const SImg = styled.img`
