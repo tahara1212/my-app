@@ -57,14 +57,12 @@ type StyleProps = {
 
 const SWorks = styled.div`
   width: 100%;
-  height: 100%;
+  /* height: 100%; */
   /* display: flex; */
   /* justify-content: space-between; */
   /* margin: 0 auto; */
   /* flex-wrap: wrap; */
   /* align-items: center; */
-  margin-bottom: 19vh;
-  background-color: cadetblue;
 `;
 
 const SFigure = styled.figure<StyleProps>`

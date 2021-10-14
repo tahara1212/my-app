@@ -80,5 +80,4 @@ const SSkils = styled.div`
   left: 50%;
   transform: translate(-50%, -56%);
   font-size: 1.8vw;
-  background-color: blue;
 `;

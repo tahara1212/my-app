@@ -166,12 +166,11 @@ const SButton = styled(Button)`
 
 const SContact = styled.div`
   width: 100%;
-  height: 100%;
+  /* height: 100%; */
   /* display: flex; */
   /* justify-content: space-between; */
   margin: 0 auto;
   /* padding-top: 3vh; */
-  background-color: brown;
 `;
 
 // const SContactImageBox = styled.div<StyleProps>`
