@@ -69,8 +69,8 @@ const KFMain = keyframes`
 
 const SMain = styled.div`
   width: calc(100% - 50px);
-  /* height: calc(95vh - 40px); */
-  height: 650px;
+  height: calc(95vh - 40px);
+  /* height: 650px; */
   overflow: hidden;
   animation-name: ${KFMain};
   animation-duration: 0.8s;
