@@ -44,8 +44,8 @@ export const SPContents: VFC<Props> = (props) => {
         <SPSkils />
         <Divider />
         <SPContact />
-        <SPFooter />
       </SMainContent>
+      <SPFooter />
     </>
   );
 };
