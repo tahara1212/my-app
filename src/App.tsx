@@ -7,6 +7,8 @@ import {
 } from "react";
 import styled from "styled-components";
 // import { Divider } from "./components/atoms/Divider";
+
+import { MetaData } from "./data/MetaData";
 import { Loader } from "./components/pc/atoms/Loader";
 import { MainMask } from "./components/pc/atoms/MainMask";
 
@@ -55,6 +57,7 @@ function App() {
 
   return (
     <TitleTextContext.Provider value={value}>
+      <MetaData />
       {loading ? (
         <Loader />
       ) : (
