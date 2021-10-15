@@ -197,7 +197,7 @@ const SContact = styled.div`
 
 const SContactFormBox = styled.div`
   width: 100%;
-  height: 40vh;
+  height: 350px;
   position: absolute;
   margin: 0 auto;
   bottom: 0;
