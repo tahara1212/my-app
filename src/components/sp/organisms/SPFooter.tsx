@@ -48,8 +48,6 @@ const SFooter = styled.footer`
   line-height: 60px;
   /* background-color: lightgray; */
   background-color: ${variable.subColor};
-  position: absolute;
-  bottom: 0;
 `;
 
 const SContactIconArea = styled.div`

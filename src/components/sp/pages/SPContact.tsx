@@ -171,7 +171,6 @@ const SContact = styled.div`
   /* justify-content: space-between; */
   margin: 0 auto;
   /* padding-top: 3vh; */
-  background-color: #b3b3cf;
 `;
 
 // const SContactImageBox = styled.div<StyleProps>`
