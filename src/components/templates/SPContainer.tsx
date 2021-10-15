@@ -19,5 +19,5 @@ const SContainer = styled.div`
   margin: 0 auto;
   position: relative;
   /* margin-bottom: 10vh; */
-  background-color: red;
+  /* background-color: red; */
 `;
