@@ -10,7 +10,7 @@ import { TitleTextContext } from "../../../App";
 // import { Container } from "../../templates/Container";
 import { SPContainer } from "../../templates/SPContainer";
 
-// import cbg from "../../../images/contact.jpeg";
+import cbg from "../../../images/contact.jpeg";
 
 export const SPContact: VFC = memo(() => {
   const { setTitle } = useContext(TitleTextContext);
@@ -85,6 +85,7 @@ export const SPContact: VFC = memo(() => {
   return (
     <SPContainer id="Contact">
       <SContact ref={ref}>
+        <SContactImageBox inView={inView}></SContactImageBox>
         <SContactFormBox>
           <SContactInputArea>
             <form onSubmit={onSubmitSendMail}>
@@ -155,9 +156,9 @@ export const SPContact: VFC = memo(() => {
   );
 });
 
-// type StyleProps = {
-//   inView: boolean;
-// };
+type StyleProps = {
+  inView: boolean;
+};
 
 const SButton = styled(Button)`
   margin-top: 1vh !important;
@@ -173,27 +174,27 @@ const SContact = styled.div`
   /* padding-top: 3vh; */
 `;
 
-// const SContactImageBox = styled.div<StyleProps>`
-//   width: 100%;
-//   height: 40vh;
-//   position: relative;
-//   background-image: url(${cbg});
-//   background-position: center;
-//   background-repeat: no-repeat;
-//   background-size: cover;
-//   border-radius: 5px;
-//   transition: all 1s ease;
-//   transform: ${(props) => (props.inView ? "scale(1)" : "scale(0.98)")};
-//   opacity: ${(props) => (props.inView ? 1 : 0)};
-//   &::before {
-//     content: "";
-//     width: 100%;
-//     height: 100%;
-//     background-color: ${variable.maskColor};
-//     position: absolute;
-//     opacity: 0.5;
-//   }
-// `;
+const SContactImageBox = styled.div<StyleProps>`
+  width: 100%;
+  height: 40vh;
+  position: relative;
+  background-image: url(${cbg});
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  border-radius: 5px;
+  transition: all 1s ease;
+  transform: ${(props) => (props.inView ? "scale(1)" : "scale(0.98)")};
+  opacity: ${(props) => (props.inView ? 1 : 0)};
+  &::before {
+    content: "";
+    width: 100%;
+    height: 100%;
+    background-color: ${variable.maskColor};
+    position: absolute;
+    opacity: 0.5;
+  }
+`;
 
 const SContactFormBox = styled.div`
   width: 100%;

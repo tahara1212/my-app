@@ -10,8 +10,8 @@ export const SPTitle: VFC<TitleProps> = memo((props) => {
 
   return (
     <STitle>
-      <SVG width="140" height="140">
-        <SCircle cx="70" cy="70" r="65" fill-opacity="0" />
+      <SVG width="120" height="120">
+        <SCircle cx="60" cy="60" r="55" fill-opacity="0" />
       </SVG>
       <SMainText>{title}</SMainText>
     </STitle>
@@ -36,15 +36,15 @@ const SVG = styled.svg`
 `;
 
 const KFCircle = keyframes`
-  0% { stroke-dasharray: 0 533; }
-  99% { stroke-dasharray: 533 533; }
+  0% { stroke-dasharray: 0 338; }
+  99% { stroke-dasharray: 338 338; }
 `;
 
 const SCircle = styled.circle`
   fill: transparent;
   stroke: black;
   stroke-width: 0.3;
-  animation: ${KFCircle} 10s infinite ease-out;
+  animation: ${KFCircle} 10s infinite linear;
 `;
 
 const KFMainText = keyframes`
@@ -62,7 +62,7 @@ const SMainText = styled.p`
   left: 0;
   background-color: transparent;
   transform: translate(-50%, -50%);
-  font-size: 58px;
+  font-size: 48px;
   font-family: "Allison", serif;
   opacity: 0;
   animation: ${KFMainText} 0.5s ease-out;
