@@ -16,6 +16,7 @@ const SLoader = styled.div`
   width: 100%;
   height: 100vh;
   background-color: white;
+  position: relative;
 `;
 
 const KFTextArea = keyframes`
@@ -31,7 +32,8 @@ const STextArea = styled.div`
   width: 60px;
   height: 60px;
   position: absolute;
-  top: 50%;
+  /* top: 50%; */
+  top: 50vh;
   left: 50%;
   transform: translate(-50%, -50%);
   color: gray;
@@ -52,4 +54,5 @@ const SPuff = styled.h1`
   animation-name: ${KFP};
   animation-duration: 1s;
   animation-delay: 2s;
+  position: absolute;
 `;
