@@ -5,7 +5,8 @@ const descriptionText = "Shunpei Tahara's portfolio site";
 const keywordText = "田原隼併,Tahara,Shunpei,ポートフォリオ";
 // let viewportText = "width=device-width, height=device-height, initial-scale=1.0, user-scalable=no";
 export const MetaData = () => {
-  const wHeight = window.outerHeight;
+  // const wHeight = window.outerHeight;
+  const wHeight = window.innerHeight;
 
   const viewportText =
     "width=device-width, height=" +
