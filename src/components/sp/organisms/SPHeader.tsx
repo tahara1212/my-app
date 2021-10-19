@@ -16,7 +16,7 @@ export const SPHeader: VFC = memo(() => {
   };
   return (
     <SHeader>
-      <SHeaderNav>
+      <SHeaderArea>
         <SLogo>
           <Link to="Main" spy={true} smooth={true} offset={-120} duration={500}>
             <SH1>sT</SH1>
@@ -27,7 +27,7 @@ export const SPHeader: VFC = memo(() => {
           <SMenuBtnSpan2></SMenuBtnSpan2>
           <SMenuBtnSpan3></SMenuBtnSpan3>
         </SMenuBtnArea>
-      </SHeaderNav>
+      </SHeaderArea>
       {open && <SPDrawer />}
     </SHeader>
   );
@@ -48,12 +48,12 @@ const SHeader = styled.header`
   right: 0;
   margin: 0 auto; */
   /* padding: 0 30px; */
-  /* background-color: ${variable.bgColor}; */
-  background-color: red;
+  background-color: ${variable.bgColor};
+  /* background-color: red; */
   z-index: 4;
 `;
 
-const SHeaderNav = styled.nav`
+const SHeaderArea = styled.div`
   width: calc(100% - 50px);
   height: 100%;
   position: relative;
@@ -106,6 +106,7 @@ const SLogo = styled.div`
   width: 43px;
   cursor: pointer;
   opacity: 0.8;
+  z-index: 11;
 `;
 
 const SH1 = styled.h1`

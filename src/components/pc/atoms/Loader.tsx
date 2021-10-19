@@ -18,6 +18,7 @@ const SLoader = styled.div`
   background-color: white;
   /* position: relative; */
   /* overflow: hidden; */
+  touch-action: none;
   z-index: 99;
 `;
 

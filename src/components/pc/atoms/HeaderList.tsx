@@ -59,6 +59,7 @@ const SLi = styled.li`
   cursor: pointer;
   height: 50px;
   position: relative;
+  display: inline-block;
   &::before {
     content: "";
     border-bottom: 1px solid black;
