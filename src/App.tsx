@@ -52,7 +52,7 @@ function App() {
   useEffect(() => {
     setInterval(() => {
       setLoading(false);
-    }, 5000); // 2700
+    }, 2700); // 2700
   }, [setLoading]);
 
   return (

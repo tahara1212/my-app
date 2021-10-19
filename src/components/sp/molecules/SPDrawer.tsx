@@ -11,4 +11,5 @@ const SDrawer = styled.nav`
   background-color: red;
   /* opacity: 0.5; */
   z-index: 200;
+  touch-action: none;
 `;
