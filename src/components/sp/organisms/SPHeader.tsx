@@ -55,7 +55,7 @@ const SHeader = styled.header`
 
 const SHeaderNav = styled.nav`
   width: calc(100% - 50px);
-  height: calc(95vh - 40px);
+  height: 100%;
   position: relative;
   margin: 0 auto;
 `;
