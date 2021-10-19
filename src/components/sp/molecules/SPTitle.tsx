@@ -22,7 +22,7 @@ const STitle = styled.div`
   position: fixed;
   top: 50vh;
   left: 50%;
-  z-index: 6;
+  z-index: 3;
 `;
 
 const SVG = styled.svg`
