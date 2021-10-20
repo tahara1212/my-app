@@ -13,6 +13,7 @@ export const SPHeader: VFC = memo(() => {
   const [open, setOpen] = useState<boolean>(false);
   const onClickMenuDrawer = () => {
     setOpen(!open);
+    console.log(open);
   };
   return (
     <SHeader>
@@ -28,7 +29,7 @@ export const SPHeader: VFC = memo(() => {
           <SMenuBtnSpan3></SMenuBtnSpan3>
         </SMenuBtnArea>
       </SHeaderArea>
-      {open && <SPDrawer />}
+      <SPDrawer open={open} onClickMenuDrawer={onClickMenuDrawer} />
     </SHeader>
   );
 });

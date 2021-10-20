@@ -1,23 +1,43 @@
-import styled from "styled-components";
+import { memo, VFC } from "react";
+import styled, { keyframes } from "styled-components";
 
 import variable from "../../../css/variables.json";
-import { HeaderList } from "../../pc/atoms/HeaderList";
+import { SPHeaderList } from "../../sp/atoms/SPHeaderList";
 
-export const SPDrawer = () => {
+type Props = {
+  open: boolean;
+  onClickMenuDrawer: () => void;
+};
+
+export const SPDrawer: VFC<Props> = memo((props) => {
+  const { open, onClickMenuDrawer } = props;
+  const headerListName = ["About", "History", "Works", "Skils", "Contact"];
   return (
-    <SDrawer>
+    <SDrawer className={open ? "isOpen" : "isClose"}>
       <SNav>
         <SUl>
-          <HeaderList idName="About" />
-          <HeaderList idName="History" />
-          <HeaderList idName="Works" />
-          <HeaderList idName="Skils" />
-          <HeaderList idName="Contact" />
+          {headerListName.map((name, index) => (
+            <SPHeaderList
+              open={open}
+              idName={name}
+              delay={index}
+              onClickMenuDrawer={onClickMenuDrawer}
+            />
+          ))}
         </SUl>
       </SNav>
     </SDrawer>
   );
-};
+});
+
+const KFDrawer = keyframes`
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+`;
 
 const SDrawer = styled.div`
   position: absolute;
@@ -27,6 +47,18 @@ const SDrawer = styled.div`
   opacity: 0.95;
   z-index: 10;
   touch-action: none;
+  /* animation: ${KFDrawer} 0.4s; */
+  transition: all 0.6s ease-out;
+  opacity: 0.95;
+
+  &.isOpen {
+    visibility: visible;
+  }
+
+  &.isClose {
+    opacity: 0;
+    visibility: hidden;
+  }
 `;
 
 const SNav = styled.nav`
