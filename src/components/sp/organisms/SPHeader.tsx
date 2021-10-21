@@ -24,9 +24,15 @@ export const SPHeader: VFC = memo(() => {
           </Link>
         </SLogo>
         <SMenuBtnArea onClick={onClickMenuDrawer}>
-          <SMenuBtnSpan1></SMenuBtnSpan1>
-          <SMenuBtnSpan2></SMenuBtnSpan2>
-          <SMenuBtnSpan3></SMenuBtnSpan3>
+          <SMenuBtnSpan1
+            className={open ? "isOpen" : "isClose"}
+          ></SMenuBtnSpan1>
+          <SMenuBtnSpan2
+            className={open ? "isOpen" : "isClose"}
+          ></SMenuBtnSpan2>
+          <SMenuBtnSpan3
+            className={open ? "isOpen" : "isClose"}
+          ></SMenuBtnSpan3>
         </SMenuBtnArea>
       </SHeaderArea>
       <SPDrawer open={open} onClickMenuDrawer={onClickMenuDrawer} />
@@ -80,20 +86,31 @@ const SMenuBtnSpan1 = styled.span`
   padding: 0;
   background: currentColor;
   position: absolute;
+  top: 0px;
   left: 50%;
-    transform: translate(-50%, -50%);
-}
-
-
-  /* text-indent: -200px; */
+  transform: translate(-50%, -50%);
+  transition: all 0.4s;
+  &.isOpen {
+    top: 10px;
+    transform: translate(-50%, -50%) rotate(-45deg);
+  }
 `;
 
 const SMenuBtnSpan2 = styled(SMenuBtnSpan1)`
-  top: 8px;
+  top: 10px;
+  opacity: 1;
+  &.isOpen {
+    opacity: 0;
+    transform: translate(-50%, -50%);
+  }
 `;
 
 const SMenuBtnSpan3 = styled(SMenuBtnSpan1)`
-  top: 16px;
+  top: 20px;
+  &.isOpen {
+    top: 10px;
+    transform: translate(-50%, -50%) rotate(45deg);
+  }
 `;
 
 const SLogo = styled.div`
