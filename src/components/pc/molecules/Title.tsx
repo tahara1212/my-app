@@ -42,7 +42,7 @@ const SCircle = styled.circle`
 
 const KFMainText = keyframes`
   0% { opacity: 0;}
-  100% { opacity: 1; }
+  100% { opacity: 0.9; }
 `;
 
 const SMainText = styled.p`
