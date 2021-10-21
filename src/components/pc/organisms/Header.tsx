@@ -5,6 +5,7 @@ import { Link } from "react-scroll";
 import variable from "../../../css/variables.json";
 import { HeaderList } from "../atoms/HeaderList";
 import { Time } from "../atoms/Time";
+import { HeaderListData } from "../../../data/HeaderListData";
 
 export const Header: VFC = memo(() => {
   return (
@@ -16,11 +17,9 @@ export const Header: VFC = memo(() => {
       </SLogo>
       <SNav>
         <SUl>
-          <HeaderList idName="About" />
-          <HeaderList idName="History" />
-          <HeaderList idName="Works" />
-          <HeaderList idName="Skils" />
-          <HeaderList idName="Contact" />
+          {HeaderListData.map((headerList) => (
+            <HeaderList idName={headerList} />
+          ))}
         </SUl>
       </SNav>
       <Time />
@@ -41,18 +40,19 @@ const SHeader = styled.header`
   background-color: ${variable.bgColor};
   z-index: 4;
 `;
+
 const SLogo = styled.div`
   position: relative;
   left: 0;
   margin-bottom: 0;
   justify-content: flex-start;
-  /* margin-right: 10px; */
   padding: 0;
   width: 57px;
   height: 100%;
   cursor: pointer;
   opacity: 0.8;
 `;
+
 const SNav = styled.nav`
   width: 50%;
   line-height: 5;

@@ -14,10 +14,6 @@ export const SPContainer: VFC<Props> = memo((props) => {
 const SContainer = styled.div`
   width: calc(100% - 50px);
   height: calc(95vh - 40px);
-  /* height: 700px; */
-  /* height: 100%; */
   margin: 0 auto;
   position: relative;
-  /* margin-bottom: 10vh; */
-  /* background-color: red; */
 `;

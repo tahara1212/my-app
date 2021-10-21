@@ -1,11 +1,11 @@
 import { memo, VFC, useContext, useEffect } from "react";
-import styled, { keyframes } from "styled-components";
+import styled from "styled-components";
 import { useInView } from "react-intersection-observer";
 
 import variable from "../../../css/variables.json";
 import { TitleTextContext } from "../../../App";
 import about from "../../../images/about.jpeg";
-import { Container } from "../../templates/Container";
+import { Container } from "../templates/Container";
 
 export const About: VFC = memo(() => {
   const { setTitle } = useContext(TitleTextContext);
@@ -63,7 +63,6 @@ const SAboutTitle = styled.h3<StyleProps>`
   font-size: 24px;
   font-weight: 400;
   transition: all 1s ease;
-  /* transition-delay: 0.2s; */
   transform: ${(props) => (props.inView ? "translateX(0)" : "translate(50px)")};
   opacity: ${(props) => (props.inView ? 1 : 0)};
 `;
@@ -71,7 +70,6 @@ const SAboutTitle = styled.h3<StyleProps>`
 const SAboutSpan = styled.span<StyleProps>`
   display: inline-block;
   transition: all 1.1s ease;
-  /* transition-delay: 0.2s; */
   transform: ${(props) =>
     props.inView ? "translateX(0px)" : "translate(70px)"};
   opacity: ${(props) => (props.inView ? 1 : 0)};
@@ -96,15 +94,6 @@ const SAboutImageBox = styled.div<StyleProps>`
   opacity: ${(props) => (props.inView ? 1 : 0)};
 `;
 
-const KFAboutImage = keyframes`
-  0% {
-    transform: scale(1) rotate(0deg);
-  }
-  100% {
-    transform: scale(1.5) rotate(20deg);
-  }
-`;
-
 const SAboutImage = styled.div`
   height: 80vh;
   opacity: 0.8;
@@ -114,7 +103,6 @@ const SAboutImage = styled.div`
   background-size: cover;
   border-radius: 5px;
   position: relative;
-  /* animation: ${KFAboutImage} 13s infinite; */
   &::before {
     content: "";
     background-color: ${variable.maskColor};

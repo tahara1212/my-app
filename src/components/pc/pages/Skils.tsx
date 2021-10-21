@@ -12,7 +12,7 @@ import { Animation } from "@devexpress/dx-react-chart";
 
 import variable from "../../../css/variables.json";
 import { TitleTextContext } from "../../../App";
-import { Container } from "../../templates/Container";
+import { Container } from "../templates/Container";
 import { SkilsData } from "../../../data/SkilsData";
 
 export const Skils: VFC = memo(() => {

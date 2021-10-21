@@ -10,8 +10,8 @@ export const Title: VFC<TitleProps> = memo((props) => {
 
   return (
     <>
-      <SVG width="320" height="320">
-        <SCircle cx="160" cy="160" r="150" fill-opacity="0" />
+      <SVG width="280" height="280">
+        <SCircle cx="140" cy="140" r="135" fill-opacity="0" />
       </SVG>
       <SMainText>{title}</SMainText>
     </>
@@ -29,8 +29,8 @@ const SVG = styled.svg`
 `;
 
 const KFCircle = keyframes`
-  0% { stroke-dasharray: 0 940; }
-  99% { stroke-dasharray: 940 940; }
+  0% { stroke-dasharray: 0 848; }
+  99% { stroke-dasharray: 848 848; }
 `;
 
 const SCircle = styled.circle`
@@ -52,7 +52,7 @@ const SMainText = styled.p`
   left: 50%;
   background-color: transparent;
   transform: translate(-50%, -50%);
-  font-size: 130px;
+  font-size: 110px;
   font-family: "Allison", serif;
   opacity: 0;
   animation: ${KFMainText} 0.5s ease-out;

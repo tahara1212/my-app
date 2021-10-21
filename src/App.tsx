@@ -5,29 +5,15 @@ import {
   useState,
   useEffect,
 } from "react";
+import useMedia from "use-media";
 import styled from "styled-components";
-// import { Divider } from "./components/atoms/Divider";
 
 import { MetaData } from "./data/MetaData";
-import { Loader } from "./components/pc/atoms/Loader";
-import { MainMask } from "./components/pc/atoms/MainMask";
-
-// import { Title } from "./components/molecules/Title";
-// import { Footer } from "./components/organisms/Footer";
-// import { Header } from "./components/organisms/Header";
-// import { About } from "./components/pages/About";
-// import { Contact } from "./components/pages/Contact";
-// import { History } from "./components/pages/History";
-// import { Main } from "./components/pages/Main";
-// import { Skils } from "./components/pages/Skils";
-// import { Works } from "./components/pages/Works";
-import { PCContents } from "./components/templates/PCContents";
-
+import { Loader } from "./components/common/atoms/Loader";
+import { MainMask } from "./components/common/atoms/MainMask";
 import bg from "./images/bg.jpeg";
-
-// import MediaQuery from "react-responsive";
-import useMedia from "use-media";
-import { SPContents } from "./components/templates/SPContents";
+import { PCContents } from "./components/pc/templates/PCContents";
+import { SPContents } from "./components/sp/templates/SPContents";
 
 export type TitleContextType = {
   title: string;
@@ -73,7 +59,6 @@ function App() {
 const SContent = styled.div`
   width: 100%;
   overflow: hidden;
-  /* padding-top: 80px; */
   margin: 0 auto;
 `;
 

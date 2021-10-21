@@ -1,16 +1,16 @@
 import { VFC } from "react";
 import styled from "styled-components";
-import { Divider } from "../pc/atoms/Divider";
+import { Divider } from "../../common/atoms/Divider";
 
-import { Title } from "../pc/molecules/Title";
-import { Footer } from "../pc/organisms/Footer";
-import { Header } from "../pc/organisms/Header";
-import { About } from "../pc/pages/About";
-import { Contact } from "../pc/pages/Contact";
-import { History } from "../pc/pages/History";
-import { Main } from "../pc/pages/Main";
-import { Skils } from "../pc/pages/Skils";
-import { Works } from "../pc/pages/Works";
+import { Title } from "../molecules/Title";
+import { Footer } from "../organisms/Footer";
+import { Header } from "../organisms/Header";
+import { About } from "../pages/About";
+import { Contact } from "../pages/Contact";
+import { History } from "../pages/History";
+import { Main } from "../pages/Main";
+import { Skils } from "../pages/Skils";
+import { Works } from "../pages/Works";
 
 type Props = {
   title: string;

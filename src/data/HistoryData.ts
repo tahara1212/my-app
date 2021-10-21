@@ -28,7 +28,8 @@ export const HistoryData: History[] = [
   {
     yearMonth: "2018年12月",
     text: "人事管理システムのテスト業務",
-    lowerText: "Java言語のバックエンド開発に携わり、主に検証作業を行う。",
+    lowerText:
+      "Java言語のバックエンド開発に携わり、単体試験や結合試験等の検証作業を行う。",
   },
   {
     yearMonth: "2019年04月",

@@ -8,7 +8,7 @@ import works03 from "../../../images/works03.png";
 import works04 from "../../../images/works04.png";
 import { useInView } from "react-intersection-observer";
 import { TitleTextContext } from "../../../App";
-import { Container } from "../../templates/Container";
+import { Container } from "../templates/Container";
 import { WorksData } from "../../../data/WorksData";
 
 export const Works: VFC = memo(() => {
@@ -89,7 +89,6 @@ const SFigure = styled.figure<StyleProps>`
       transform: scale(1.2);
     }
     & figcaption {
-      /* background-color: rgba(96, 74, 185, 0.6); */
       background-color: rgba(70, 130, 180, 0.8);
     }
 
@@ -126,7 +125,6 @@ const Sfigcaption = styled.figcaption`
   left: 0;
   width: 100%;
   height: 100%;
-  /* background-color: rgba(62, 53, 97, 0.2); */
   background-color: rgba(70, 130, 180, 0.3);
   backface-visibility: hidden;
   transition: background-color 0.55s;

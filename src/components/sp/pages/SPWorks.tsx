@@ -8,8 +8,7 @@ import works03 from "../../../images/works03.png";
 import works04 from "../../../images/works04.png";
 import { useInView } from "react-intersection-observer";
 import { TitleTextContext } from "../../../App";
-// import { Container } from "../../templates/Container";
-import { SPContainer } from "../../templates/SPContainer";
+import { SPContainer } from "../templates/SPContainer";
 
 import { WorksData } from "../../../data/WorksData";
 
@@ -57,19 +56,12 @@ type StyleProps = {
 
 const SWorks = styled.div`
   width: 100%;
-  /* height: 100%; */
-  /* display: flex; */
-  /* justify-content: space-between; */
-  /* margin: 0 auto; */
-  /* flex-wrap: wrap; */
-  /* align-items: center; */
 `;
 
 const SFigure = styled.figure<StyleProps>`
   position: relative;
   width: 100%;
   height: 20vh;
-  /* margin-bottom: 1vh; */
   cursor: pointer;
   text-align: center;
   overflow: hidden;
@@ -103,7 +95,6 @@ const SFigure = styled.figure<StyleProps>`
       transform: scale(1.2);
     }
     & figcaption {
-      /* background-color: rgba(96, 74, 185, 0.6); */
       background-color: rgba(70, 130, 180, 0.8);
     }
 
@@ -131,7 +122,6 @@ const Sfigcaption = styled.figcaption`
   left: 0;
   width: 100%;
   height: 100%;
-  /* background-color: rgba(62, 53, 97, 0.2); */
   background-color: rgba(70, 130, 180, 0.3);
   backface-visibility: hidden;
   transition: background-color 0.55s;

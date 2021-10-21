@@ -1,8 +1,8 @@
 import styled, { keyframes } from "styled-components";
 
-import { VFC } from "react";
+import { VFC, memo } from "react";
 
-export const Loader: VFC = () => {
+export const Loader: VFC = memo(() => {
   return (
     <SLoader>
       <STextArea>
@@ -10,13 +10,14 @@ export const Loader: VFC = () => {
       </STextArea>
     </SLoader>
   );
-};
+});
 
 const SLoader = styled.div`
   width: 100%;
   height: 100vh;
   background-color: white;
-  position: relative;
+  touch-action: none;
+  z-index: 99;
 `;
 
 const KFTextArea = keyframes`
@@ -32,9 +33,9 @@ const STextArea = styled.div`
   width: 60px;
   height: 60px;
   position: absolute;
-  top: 57vh;
+  top: 50%;
   left: 50%;
-  /* transform: translate(-50%, -50%); */
+  transform: translate(-50%, -50%);
   color: gray;
   line-height: 60px;
   overflow: hidden;
@@ -53,4 +54,5 @@ const SPuff = styled.h1`
   animation-name: ${KFP};
   animation-duration: 1s;
   animation-delay: 2s;
+  position: absolute;
 `;

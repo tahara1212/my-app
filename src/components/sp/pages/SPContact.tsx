@@ -7,9 +7,7 @@ import { Alert, Snackbar, TextField, Button } from "@mui/material";
 
 import variable from "../../../css/variables.json";
 import { TitleTextContext } from "../../../App";
-// import { Container } from "../../templates/Container";
-import { SPContainer } from "../../templates/SPContainer";
-
+import { SPContainer } from "../templates/SPContainer";
 import cbg from "../../../images/contact.jpeg";
 
 export const SPContact: VFC = memo(() => {
@@ -168,10 +166,7 @@ const SButton = styled(Button)`
 const SContact = styled.div`
   width: 100%;
   height: 100%;
-  /* display: flex; */
-  /* justify-content: space-between; */
   margin: 0 auto;
-  /* padding-top: 3vh; */
 `;
 
 const SContactImageBox = styled.div<StyleProps>`
@@ -207,10 +202,6 @@ const SContactFormBox = styled.div`
 const SContactInputArea = styled.div`
   width: 100%;
   text-align: center;
-  /* position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-30%, -50%); */
 `;
 
 const SFlex = styled.div`
@@ -220,7 +211,6 @@ const SFlex = styled.div`
 `;
 
 const STextField = styled(TextField)`
-  /* color: black; */
   width: 48%;
   margin-bottom: 1vh !important;
 `;

@@ -24,3 +24,11 @@ export const SkilsData: Skil[] = [
   { skil: "Photoshop", level: 1.93 },
   { skil: "Illustrator", level: 0.93 },
 ];
+
+export const SPSkilsData: Skil[] = [
+  { skil: "Markup", level: 75 },
+  { skil: "FrontEnd", level: 70 },
+  { skil: "BackEnd", level: 65 },
+  { skil: "ServerSide", level: 50 },
+  { skil: "Design", level: 35 },
+];

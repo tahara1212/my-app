@@ -3,7 +3,6 @@ import styled, { keyframes } from "styled-components";
 import { Link } from "react-scroll";
 
 import { TitleTextContext } from "../../../App";
-// import variable from "../../css/variables.json";
 
 type Props = {
   idName: string;
@@ -16,7 +15,7 @@ export const HeaderList: VFC<Props> = memo((props) => {
     <>
       {title === idName ? (
         <SLiActive>
-          <Link
+          <SLink
             to={idName}
             spy={true}
             smooth={true}
@@ -24,11 +23,11 @@ export const HeaderList: VFC<Props> = memo((props) => {
             duration={500}
           >
             {idName}
-          </Link>
+          </SLink>
         </SLiActive>
       ) : (
         <SLi>
-          <Link
+          <SLink
             to={idName}
             spy={true}
             smooth={true}
@@ -36,7 +35,7 @@ export const HeaderList: VFC<Props> = memo((props) => {
             duration={500}
           >
             {idName}
-          </Link>
+          </SLink>
         </SLi>
       )}
     </>
@@ -77,7 +76,6 @@ const SLi = styled.li`
 `;
 
 const SLiActive = styled(SLi)`
-  /* color: gray; */
   color: steelblue;
   position: relative;
   &::before {
@@ -91,4 +89,8 @@ const SLiActive = styled(SLi)`
     right: 0;
     pointer-events: none;
   }
+`;
+
+const SLink = styled(Link)`
+  padding: 10px;
 `;

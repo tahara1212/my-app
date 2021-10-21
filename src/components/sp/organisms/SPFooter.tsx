@@ -46,7 +46,6 @@ const SFooter = styled.footer`
   padding: 0 40px;
   text-align: center;
   line-height: 60px;
-  /* background-color: lightgray; */
   background-color: ${variable.subColor};
 `;
 

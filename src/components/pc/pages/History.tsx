@@ -7,7 +7,7 @@ import history from "../../../images/history.jpeg";
 import variable from "../../../css/variables.json";
 import { TitleTextContext } from "../../../App";
 import { HistoryText } from "../molecules/HistoryText";
-import { Container } from "../../templates/Container";
+import { Container } from "../templates/Container";
 
 export const History: VFC = memo(() => {
   const { setTitle } = useContext(TitleTextContext);

@@ -7,17 +7,7 @@ import variable from "../../../css/variables.json";
 import { useInView } from "react-intersection-observer";
 import { TitleTextContext } from "../../../App";
 
-// const imgPath = "/images/bg.jpeg";
-
 export const Main: VFC = memo(() => {
-  // const img = new Image();
-  // img.src = bg; // プリロードする
-  // console.log(img.src);
-  // img.onload = () => {
-  //   // 読み込み完了時に発火する関数
-  //   alert("comp");
-  // };
-
   const { setTitle } = useContext(TitleTextContext);
 
   const { ref, inView } = useInView({
@@ -63,7 +53,6 @@ const KFMain = keyframes`
   }
   100% {
     opacity: 1;
-    /* transform: scale(1); */
   }
 `;
 
@@ -73,8 +62,6 @@ const SMain = styled.div`
   overflow: hidden;
   animation-name: ${KFMain};
   animation-duration: 0.8s;
-  /* animation-timing-function: ease-out; */
-  /* animation-delay: 2s; */
 `;
 
 const KFMainBg = keyframes`

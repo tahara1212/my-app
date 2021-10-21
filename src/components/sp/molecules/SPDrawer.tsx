@@ -1,8 +1,9 @@
 import { memo, VFC } from "react";
-import styled, { keyframes } from "styled-components";
+import styled from "styled-components";
 
 import variable from "../../../css/variables.json";
 import { SPHeaderList } from "../../sp/atoms/SPHeaderList";
+import { HeaderListData } from "../../../data/HeaderListData";
 
 type Props = {
   open: boolean;
@@ -11,12 +12,11 @@ type Props = {
 
 export const SPDrawer: VFC<Props> = memo((props) => {
   const { open, onClickMenuDrawer } = props;
-  const headerListName = ["About", "History", "Works", "Skils", "Contact"];
   return (
     <SDrawer className={open ? "isOpen" : "isClose"}>
       <SNav>
         <SUl>
-          {headerListName.map((name, index) => (
+          {HeaderListData.map((name, index) => (
             <SPHeaderList
               open={open}
               idName={name}
@@ -30,15 +30,6 @@ export const SPDrawer: VFC<Props> = memo((props) => {
   );
 });
 
-const KFDrawer = keyframes`
-  0% {
-    opacity: 0;
-  }
-  100% {
-    opacity: 1;
-  }
-`;
-
 const SDrawer = styled.div`
   position: absolute;
   width: 100%;
@@ -47,7 +38,6 @@ const SDrawer = styled.div`
   opacity: 0.95;
   z-index: 10;
   touch-action: none;
-  /* animation: ${KFDrawer} 0.4s; */
   transition: all 0.6s ease-out;
   opacity: 0.95;
 
@@ -62,20 +52,14 @@ const SDrawer = styled.div`
 `;
 
 const SNav = styled.nav`
-  /* width: 50%; */
-  /* line-height: 5; */
-  /* margin: 0 auto; */
   font-size: 2rem;
   text-align: center;
 `;
 
 const SUl = styled.ul`
-  /* display: flex; */
   width: 140px;
   margin: 0 auto;
   list-style: none;
-  /* display: inline-block; */
-  /* justify-content: space-around; */
   position: absolute;
   top: 50%;
   left: 50%;
