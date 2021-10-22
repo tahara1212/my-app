@@ -9,7 +9,7 @@ type Props = {
   onClickMenuDrawer: () => void;
 };
 
-export const SPHeaderList: VFC<Props> = memo((props) => {
+export const SPHeaderListItem: VFC<Props> = memo((props) => {
   const { open, idName, delay, onClickMenuDrawer } = props;
   return (
     <>

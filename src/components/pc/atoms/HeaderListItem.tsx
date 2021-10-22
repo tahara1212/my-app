@@ -8,7 +8,7 @@ type Props = {
   idName: string;
 };
 
-export const HeaderList: VFC<Props> = memo((props) => {
+export const HeaderListItem: VFC<Props> = memo((props) => {
   const { idName } = props;
   const { title } = useContext(TitleTextContext);
   return (

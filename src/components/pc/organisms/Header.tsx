@@ -3,7 +3,7 @@ import styled from "styled-components";
 import { Link } from "react-scroll";
 
 import variable from "../../../css/variables.json";
-import { HeaderList } from "../atoms/HeaderList";
+import { HeaderListItem } from "../atoms/HeaderListItem";
 import { Time } from "../atoms/Time";
 import { HeaderListData } from "../../../data/HeaderListData";
 
@@ -18,7 +18,7 @@ export const Header: VFC = memo(() => {
       <SNav>
         <SUl>
           {HeaderListData.map((headerList) => (
-            <HeaderList idName={headerList} />
+            <HeaderListItem idName={headerList} />
           ))}
         </SUl>
       </SNav>

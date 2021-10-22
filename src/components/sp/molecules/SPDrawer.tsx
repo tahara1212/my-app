@@ -2,7 +2,7 @@ import { memo, VFC } from "react";
 import styled from "styled-components";
 
 import variable from "../../../css/variables.json";
-import { SPHeaderList } from "../../sp/atoms/SPHeaderList";
+import { SPHeaderListItem } from "../atoms/SPHeaderListItem";
 import { HeaderListData } from "../../../data/HeaderListData";
 
 type Props = {
@@ -17,7 +17,7 @@ export const SPDrawer: VFC<Props> = memo((props) => {
       <SNav>
         <SUl>
           {HeaderListData.map((name, index) => (
-            <SPHeaderList
+            <SPHeaderListItem
               open={open}
               idName={name}
               delay={index}

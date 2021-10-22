@@ -32,8 +32,8 @@ const SVG = styled.svg`
 `;
 
 const KFCircle = keyframes`
-  0% { stroke-dasharray: 0 338; }
-  99% { stroke-dasharray: 338 338; }
+  0% { stroke-dasharray: 0 320; }
+  99% { stroke-dasharray: 320 320; }
 `;
 
 const SCircle = styled.circle`
