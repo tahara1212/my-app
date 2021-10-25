@@ -14,7 +14,7 @@ use-mediaを使用してレスポンシブ対応をしています。
 
 ### ライブラリ
 一部UIはMaterial-UIを使用。  
-問い合わせフォームはemailjs、スクロールイベントはreact-intersection-observerで実装しています。　　
+問い合わせフォームはemailjs、スクロールイベントはreact-intersection-observerで実装しています。　　  
 スタイルはstyled-componentを使用しました。　　
   
 @types/react: 17.0.21,  
