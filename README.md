@@ -2,17 +2,15 @@
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## Available Scripts
+## アプリケーション名
+「田原隼併のポートフォリオサイト」
 
-In the project directory, you can run:
+### アプリケーション概要
+React+TypeScriptで作成したポートフォリオサイトです。
+転職活動用に作成したのでドメインは取得しておりませんが、Netlifyにデプロイしています。
 
-### `yarn start`
-
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
-
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+### URL
+https://shunpeitahara.netlify.app/
 
 ### `yarn test`
 
